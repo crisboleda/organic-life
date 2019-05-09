@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Menú responsive */
+.menu-lateralResponsive {
+    width: 45%;
+    height: 100%;
+    background-color: #FFF;
+    right: -100%;
+    top: 70px;
+    position: fixed;
+    transition: 1s;
+    
+}
+
+.nav-responsive {
+    float: left;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.nav-responsive ul li {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    border-bottom: 2px rgba(0, 0, 0, 0.10) solid;
+}
+
+.nav-responsive ul li a {
+    font-size: 28px;
+}
+
+.logo {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: rgba(0,0,0,.65);
+    display: inline-block;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+    background-color: #FFF;
+    opacity: 0.9;
+    height: 85px;  
+    z-index: 1;
+    box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
+    /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
+}
+
+.bajar-header {
+    box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
+    animation: 1s bajar;
+    position: fixed;
+    z-index: 7;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+@keyframes bajar {
+    from {
+       top: -70px;
+    }to {
+        top: 0px;
+    }
+}
+
+.icon-menu {
+    display: none;
+    float: right;
+    height: 37px;
+    width: 37px;
+    margin-top: 16.5px;
+    margin-right: 25px;
+}
+
+.img-logo {
+    height: 70px;
+    width: 70px;
+    margin-left: 60px;
+}
+
+nav {
+    float: right;
+    margin-right: 10px;
+}
+
+nav ul {
+    margin-top: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+nav ul li a {
+    font-family: 'Heebo', sans-serif;
+    text-decoration: none;
+    color: rgba(0,0,0, 0.80);
+    font-size: 20px;
+}
+
+.actual {
+    color: #10E82D;
+}

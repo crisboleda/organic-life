@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.theme-mi-slider .nivoSlider{
+	position: relative;
+}
+
+.theme-mi-slider .nivoSlider a {
+	border: 0;
+	display: block;
+}
+
+/*------------- Slider Paginación ---------------- */
+
+
+.nivo-controlNav{
+	display: flex;
+	justify-content: center;
+}
+
+.theme-mi-slider .nivo-control{
+	display: block;
+	width: 18px;
+	height: 18px;
+	background: #DAD8D8;
+	border-radius: 50%;
+	margin: 3px;
+	text-indent: -99999px;
+}
+
+.theme-mi-slider .nivo-control:hover{
+	background: #C0C0C0;
+}
+
+.theme-mi-slider .active {
+	background: #909090;
+}
+
+.theme-mi-slider .active:hover{
+	background:  #909090;
+}			
+
+
+/*------------- Slider Direccion (Flechas)---------------- */
+
+.nivo-directionNav a{
+	display: block;
+	width: 38px;
+	height: 38px;
+	color: #C0C0C0;
+}
+
+.nivo-directionNav .nivo-prevNav{
+	background-image: url(../img/icons/circle-left.png);
+	background-size: cover;
+	text-indent: -99999px;
+	left: 6px;
+}
+
+.nivo-directionNav .nivo-nextNav{
+	background-image: url(../img/icons/circle-right.png);
+	background-size: cover;
+	text-indent: -99999px;
+	right:6px;
+}
+
+/* ---------- Hover (Flechas) ------------ */
+
+.nivo-directionNav .nivo-prevNav:hover{
+	background-image: url(../img/icons/2circle-left.png);
+	background-size: cover;
+	width: 41px;
+	height: 41px;
+}
+
+.nivo-directionNav .nivo-nextNav:hover{
+	background-image: url(../img/icons/2circle-right.png);
+	background-size: cover;
+	width: 41px;
+	height: 41px;
+}
+
+/* Mensajes */

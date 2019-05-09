@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Organic Life</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+
+    <!-- Foonts -->
+    <link rel="stylesheet" href="iconos/style.css">
+
+    <!-- Slider -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/nivo-slider.css">
+    <link rel="stylesheet" type="text/css" href="css/mi-slider.css">
+    <script type="text/javascript"> 
+        $(window).on('load', function() {
+            $('#slider').nivoSlider(); 
+        }); 
+    </script>
+</head>
+<body>
+    <header id="cabecera">
+        <img src="imagenes/logo.png" class="img-logo">
+        <h1 class="logo">Organic Life</h1>
+        <img src="img/menu.png" class="icon-menu" id="boton-menu">
+        <nav>
+            <ul>
+                <li><a href="login.html">Entrar</a></li>
+                <li><a href="registrarse.html">Registrarse</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href=""><span class="icon-search"></span></a></li>
+            </ul>
+        </nav>  
+    </header>
+    <div class="menu-lateralResponsive" id="menu-responsive">
+        <nav class="nav-responsive">
+            <ul>
+                <li><a href="login.html">Entrar</a></li>
+                <li><a href="registrarse.html">Registrarse</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>  
+    </div>
+
+    <div class="container-inicio">
+        <div class="slider-wrapper theme-mi-slider">
+            <div id="slider" class="nivoSlider">     
+                <img src="img-slider/slider1.jpg">
+                <img src="img-slider/manzana.jpg">
+                <img src="imagenes/slider3.jpg">
+                <img src="imagenes/slider4.jpg">
+            </div> 
+        </div>
+    </div>
+</body>
+</html>
