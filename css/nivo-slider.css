@@ -12,9 +12,9 @@
 	position:relative;
 	width:100%;
 	height:auto;
+	z-index: -1;
 	overflow: hidden;
 	margin-top:0;
-	z-index: -4;
 }
 .nivoSlider img {
 	position:absolute;
