@@ -1,3 +1,10 @@
+<?php 
+
+    session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,17 +36,33 @@
         <img src="img/menu.png" class="icon-menu" id="boton-menu">
         <nav>
             <ul>
-                <li><a href="login.html">Entrar</a></li>
-                <li><a href="registrarse.html">Registrarse</a></li>
+                <?php 
+                    if (empty($_SESSION['datos'])) { ?>
+                     
+                    <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
+                    <li><a href="registrarse.html">Registrarse</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href=""><span class="icon-search"></span></a></li>
+                    
+                <?php }else { ?>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
+                <li class="li-perfilUsuario">
+                    <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
+                    <ul class="subMenu-usuario" id="submenu-perfil">
+                        <li><a href="">Perfil</a></li>
+                        <li><a href="php/cerrar.php">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+
+                <?php } ?>
             </ul>
         </nav>
     </header>
     <div class="sub-menu">
         <span class="icon-cart"></span>
         <ul class="lista-submenu">
-            <li><a href="catagolo.html">Catálogo</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li>
             <li><a href="">OrganicLife</a></li>
             <li><a href="">Blog</a></li>
             
@@ -48,7 +71,7 @@
     <div class="menu-lateralResponsive" id="menu-responsive">
         <nav class="nav-responsive">
             <ul>
-                <li><a href="login.html">Entrar</a></li>
+                <li><a href="login.php?url=index.html">Entrar</a></li>
                 <li><a href="registrarse.html">Registrarse</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
@@ -59,7 +82,7 @@
     <div class="container-inicio">
         <div class="slider-wrapper theme-mi-slider">
             <div id="slider" class="nivoSlider">     
-                <img src="img-slider/slider1.jpg">
+                <img src="img-slider/slider11.png">
                 <img src="img-slider/slider3.jpg">
                 <img src="img-slider/slider4.jpg">
             </div> 
@@ -84,14 +107,14 @@
 
     <!--Footer-->
     <footer>
-            <div class="contenedor">
-                <div class="cont-body">                
-                    <div class="columna1">    
-                        <h1> Entérate de nuevos eventos</h1>
-                        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
-                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
+        <div class="contenedor">
+            <div class="cont-body">                
+                <div class="columna1">    
+                    <h1> Entérate de nuevos eventos</h1>
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
                             </form>
                         </nav>
                     </div>
@@ -132,17 +155,19 @@
             </div>
             <div class="cont-footer">
                 <div class="alineacion">
-                    <div class="copyright">
-                        © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
-                    </div>
+                <div class="copyright">
+                    © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
+                </div>
             
-                    <div class="nosotros">
-                        <a href=""> Preguntas Frecuentes |</a>
-                        <a href=""> Términos y condiciones </a>
-                    </div>
+                <div class="nosotros">
+                    <a href=""> Preguntas Frecuentes |</a>
+                    <a href=""> Términos y condiciones </a>
                 </div>
             </div>
-        </footer>
-
+        </div>
+    </footer>
+    
+    <script src="js/menu.js"></script>
+    <script src="js/aparecerIcono.js"></script>
 </body>
 </html>

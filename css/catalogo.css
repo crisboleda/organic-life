@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -51,6 +53,43 @@ header {
     margin-bottom: 0;
     border-bottom: 1.6px #f1eded solid;
     /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
+}
+
+.li-perfilUsuario {
+    margin-left: 20px; 
+}
+
+.img-usuario {
+    float: right;
+    width: 35px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    right: 0;
+    margin-right: 20px;
+    margin-top: -10px;
+    height: 35px;
+}
+
+.subMenu-usuario {
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    z-index: 2;
+    background: red;
+}
+
+.subMenu-usuario li {
+    display: inline-block;
+    border-bottom: 2px #dddddd solid;
+    background-color: #FFF;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.subMenu-usuario li a {
+    width: 100%;
+
 }
 
 .sub-menu {
@@ -146,7 +185,6 @@ nav ul li a {
 .menu-lateral {
     left: 0;
     width: 17%;
-    height: 100%;
     position: relative;
     background-color: red;
 }
@@ -187,24 +225,45 @@ nav ul li a {
 .contenido-productos {
     height: 100%;
     margin-left: 25%;
-}
-
-.card {
-    font-family: 'Encode Sans Condensed', sans-serif;
-    height: 300px;
-    display: inline-block;
-    width: 250px;
-    margin: 20px;
-    background-color: rgb(241, 241, 241);
     border: 2px #dddddd solid;
 }
 
+.card {
+    text-align: center;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    display: inline-block;
+    width: 250px;
+    position: relative;
+    margin: 20px;
+    border: 2px #ccc solid;
+    color: rgba(0, 0, 0, .90);
+}
+
+.card h3{
+    font-size: 20px;
+}
+
+.card h3:end {
+    content: "$";
+}
+
 .card button {
+    font-size: 20px;
     padding: 10px;
     width: 50%;
-    background: #10E82D;
+    background: rgb(241, 241, 241);
+    color: black;
+    border: 2px #d4d4d4 solid;
+    margin-bottom: 10px;
 }
 
 .card button:hover {
+    transition: 0.3s;
     cursor: pointer;
+    color: #FFF;
+    background: #10E82D;
+}
+
+.card img {
+    width: 100%;
 }

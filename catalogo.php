@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    include("php/conexion.php");
+    
+    if (isset($conexion)) {
+        echo "";
+    }else {
+        echo "Error";
+    }
+
+    $query = "SELECT * FROM productos";
+    $resultado = $conexion->query($query);
+
+
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,19 +32,33 @@
         <h1 class="logo">Organic Life</h1>
         <img src="img/menu.png" class="icon-menu" id="boton-menu">
         <nav>
-            <ul>
-                <li><a href="login.html">Entrar</a></li>
+        <?php 
+            if (empty($_SESSION['datos'])) { ?>
+                     
+                <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                 <li><a href="registrarse.html">Registrarse</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
-            </ul>
+                    
+            <?php }else { ?>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href=""><span class="icon-search"></span></a></li>
+                <li class="li-perfilUsuario">
+                    <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
+                    <ul class="subMenu-usuario" id="submenu-perfil">
+                        <li><a href="">Perfil</a></li>
+                        <li><a href="php/cerrar.php">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+
+            <?php } ?>
         </nav>
     </header>
     <div class="sub-menu">
         <span class="icon-cart"></span>
         <ul class="lista-submenu">
             <li><a href="">Catálogo</a></li>
-            <li><a href="">OrganicLife</a></li>
+            <li><a href="index.php">OrganicLife</a></li>
             <li><a href="">Blog</a></li>
             
         </ul>
@@ -65,41 +95,16 @@
         </nav>
     </div>
     <div class="contenido-productos">
-        <div class="card">
-            <img src="" alt="">
-            <h2>Banano bocadillo</h2>
-            <p>Racimo de 6 uds aprox.</p>
-            <h3>Precio: $4.36</h3>
-            <button>Ver más</button>
-        </div>
-        <div class="card">
-            <img src="" alt="">
-            <h2>Banano bocadillo</h2>
-            <p>Racimo de 6 uds aprox.</p>
-            <h3>Precio: $4.36</h3>
-            <button>Ver más</button>
-        </div>
-        <div class="card">
-            <img src="" alt="">
-            <h2>Banano bocadillo</h2>
-            <p>Racimo de 6 uds aprox.</p>
-            <h3>Precio: $4.36</h3>
-            <button>Ver más</button>
-        </div>
-        <div class="card">
-            <img src="" alt="">
-            <h2>Banano bocadillo</h2>
-            <p>Racimo de 6 uds aprox.</p>
-            <h3>Precio: $4.36</h3>
-            <button>Ver más</button>
-        </div>
-        <div class="card">
-            <img src="" alt="">
-            <h2>Banano bocadillo</h2>
-            <p>Racimo de 6 uds aprox.</p>
-            <h3>Precio: $4.36</h3>
-            <button>Ver más</button>
-        </div>
+        <?php
+        while ($columna = mysqli_fetch_array( $resultado )){?>
+            <div class='card'>
+                <img src="<?php echo $columna['imagenProducto'] ?>">
+                <h2><?php echo $columna['nombreProducto']?></h2>
+                <p><em><?php echo $columna['gramosProducto'] ?></em></p><br>
+                <h3>Precio: <?php echo $columna['precioProducto'] ?></h3><br>
+                <button><a href="descripcion.php?id=<?php echo $columna['id_producto']?>">Ver más</a></button>
+            </div>
+        <?php } ?>
     </div>
     <script src="js/submenu.js"></script>
 </body>

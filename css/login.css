@@ -167,6 +167,7 @@ input[type="password"] {
 input[type="email"]:focus, input[type="password"]:focus {
 	outline: none;
 	color: #FFF;
+	background: rgba(0, 0, 0, 0);
 }
 
 .perfil {
@@ -220,7 +221,6 @@ input[type="submit"]:focus {
 
 input[type="submit"]:hover {
 	cursor: pointer;
-	background-color: #DF2D3C;
 	color: #FFF;
 }
 

@@ -1,8 +1,7 @@
 <?php
-
-$mysqli = new mysqli("localhost", "root", "", "frutas");
-if (mysqli_connect_error()) {
-	echo "Conexcion Fallida";
-}
-$mysqli->set_charset("utf8");
+	$conexion = new mysqli("localhost", "root", "", "organic_life");
+	if (mysqli_connect_error()) {
+		echo "Conexcion Fallida";
+	}
+	$conexion->set_charset("utf8");
 ?>

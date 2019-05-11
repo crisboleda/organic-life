@@ -1,3 +1,12 @@
+<?php
+
+    if (isset($_GET['url'])) {
+        $url= $_GET['url'];
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +20,7 @@
 
     <link rel="stylesheet" href="iconos/style.css">
 </head>
-<body background="imagenes/frutas.jpg">
+<body background="imagenes/fondo.jpg">
 
     <header id="cabecera">
         <img src="imagenes/logo.png" class="img-logo">
@@ -19,7 +28,7 @@
         <img src="img/menu.png" class="icon-menu" id="boton-menu">
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
             </ul>
@@ -36,12 +45,17 @@
         </nav>  
     </div>
 
-    <form action="php/ingresar.php" method="POST">
+    <form action="php/ingresar.php?url=<?php echo $url ?>" method="POST" autocomplete="off">
         <div class="container">
             <h2>Iniciar sesión<br>con tu red social</h2>
-    		<br><br>
+            <br>
+            <div class="redes">
+                <img src="imagenes/google.png">
+                <img src="imagenes/facebook.png">
+                <img src="imagenes/twitter.png">
+            </div>
     		<label for="nameUser">Correo Electronico:</label><br>
-    		<input type="email" name="emailUser" id="nameUser" placeholder="Ingrese su electronico" required=""><br><br>
+    		<input type="email" name="emailUser" id="nameUser" placeholder="Ingrese su electronico" required="" autocomplete="none"><br><br>
             <label for="contraseñaUser">Contraseña:</label><br>
 
             <div class="container con_password">
