@@ -32,41 +32,42 @@
         <h1 class="logo">Organic Life</h1>
         <img src="img/menu.png" class="icon-menu" id="boton-menu">
         <nav>
-        <?php 
-            if (empty($_SESSION['datos'])) { ?>
+            <ul>
+                <?php 
+                    if (empty($_SESSION['datos'])) { ?>
                      
-                <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
-                <li><a href="registrarse.html">Registrarse</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href=""><span class="icon-search"></span></a></li>
+                    <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
+                    <li><a href="registrarse.html">Registrarse</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href=""><span class="icon-search"></span></a></li>
                     
-            <?php }else { ?>
+                <?php }else { ?>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
                 <li class="li-perfilUsuario">
                     <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
-                    <ul class="subMenu-usuario" id="submenu-perfil">
-                        <li><a href="">Perfil</a></li>
-                        <li><a href="php/cerrar.php">Cerrar sesión</a></li>
-                    </ul>
                 </li>
 
-            <?php } ?>
+                <?php } ?>
+            </ul>
         </nav>
     </header>
     <div class="sub-menu">
-        <span class="icon-cart"></span>
         <ul class="lista-submenu">
-            <li><a href="">Catálogo</a></li>
-            <li><a href="index.php">OrganicLife</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li>
+            <li><a href="">OrganicLife</a></li>
             <li><a href="">Blog</a></li>
-            
+            <ul class="subMenu-usuario" id="submenu-perfil">
+                <li><a href="">Perfil</a></li>
+                <li><a href="php/cerrar.php">Cerrar sesión</a></li>
+            </ul>
+            <span class="icon-cart"></span>
         </ul>
     </div>  
     <div class="menu-lateralResponsive" id="menu-responsive">
         <nav class="nav-responsive">
             <ul>
-                <li><a href="login.html">Entrar</a></li>
+                <li><a href="login.php?url=index.html">Entrar</a></li>
                 <li><a href="registrarse.html">Registrarse</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
@@ -82,6 +83,8 @@
                         <li><a href="">Verduras</a></li>
                     </ul>
                 </li>
+                <li><a href="">Frutas</a></li>
+                <li><a href="">Verduras</a></li>
                 <li><a>Rango de precios</a><span class="icon-circle-down"></span>
                     <ul>
                         <li><a href="">$1,000 - 4,999</a></li>
@@ -106,6 +109,7 @@
             </div>
         <?php } ?>
     </div>
+    <script src="js/aparecerIcono.js"></script>
     <script src="js/submenu.js"></script>
 </body>
 </html>

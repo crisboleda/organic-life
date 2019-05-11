@@ -46,8 +46,7 @@ header {
     width: 100%;
     background-color: #FFF;
     opacity: 0.9;
-    height: 85px;  
-    z-index: 3;
+    height: 85px; 
     margin-bottom: 0;
     border-bottom: 1.6px #f1eded solid;
     /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
@@ -70,19 +69,23 @@ header {
 }
 
 .subMenu-usuario {
+    display: none;
     position: absolute;
     right: 0;
-    padding: 20px;
-    z-index: 2;
-    background: red;
+    top: 0;
+    z-index: 3;
+    padding: 5px 10px;
+    float: right;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
+    background: rgb(255, 255, 255);
 }
 
 .subMenu-usuario li {
     display: inline-block;
     border-bottom: 2px #dddddd solid;
     background-color: #FFF;
-    margin-top: 10px;
-    width: 100%;
+    width: 90%;
+    margin: 10px 5%;
 }
 
 .subMenu-usuario li a {
@@ -93,18 +96,17 @@ header {
 .sub-menu {
     width: 100%;
     height: 65px;
-    z-index: 1;
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     position: relative;
 }
 
 .lista-submenu {
-    width: 50%;
-    margin: 10px 35%;
+    width: 65%;
+    margin: 10px 0 0 35%;
     float: left;
 }
 
-.lista-submenu li {
+.lista-submenu > li {
     display: inline-block;
     margin-left: 50px;
     margin-top: 10px;
@@ -119,14 +121,11 @@ header {
 
 .icon-cart {
     font-size: 30px;
-    top: 0;
-    z-index: -1;
-    margin-top: 18px;
-    margin-right: 20px;
+    margin-top: 10px;
     right: 0;
-    position: absolute;
-    float: right;
+    margin-right: 20px;
     cursor: pointer;
+    position: absolute;
 }
 
 .bajar-header {

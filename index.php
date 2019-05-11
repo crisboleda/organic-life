@@ -49,10 +49,6 @@
                 <li><a href=""><span class="icon-search"></span></a></li>
                 <li class="li-perfilUsuario">
                     <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
-                    <ul class="subMenu-usuario" id="submenu-perfil">
-                        <li><a href="">Perfil</a></li>
-                        <li><a href="php/cerrar.php">Cerrar sesión</a></li>
-                    </ul>
                 </li>
 
                 <?php } ?>
@@ -60,12 +56,15 @@
         </nav>
     </header>
     <div class="sub-menu">
-        <span class="icon-cart"></span>
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
             <li><a href="">OrganicLife</a></li>
             <li><a href="">Blog</a></li>
-            
+            <ul class="subMenu-usuario" id="submenu-perfil">
+                <li><a href="php/validarUsuario.php">Perfil</a></li>
+                <li><a href="php/cerrar.php">Cerrar sesión</a></li>
+            </ul>
+            <span class="icon-cart"></span>
         </ul>
     </div>  
     <div class="menu-lateralResponsive" id="menu-responsive">
@@ -82,9 +81,10 @@
     <div class="container-inicio">
         <div class="slider-wrapper theme-mi-slider">
             <div id="slider" class="nivoSlider">     
-                <img src="img-slider/slider11.png">
+                <img src="img-slider/slider1.png">
+                <img src="img-slider/slider2.jpg">
                 <img src="img-slider/slider3.jpg">
-                <img src="img-slider/slider4.jpg">
+                <img src="img-slider/slider3.jpg">
             </div> 
         </div>
     </div>

@@ -1,20 +1,23 @@
 var icono = document.getElementById('img-perfil');
 var submenu = document.getElementById('submenu-perfil');
 icono.addEventListener("click", aparecer);
+var contador1 = 0;
 
-var contador = 1
-function desaparecer() {
-    if (contador == 2) {
-        submenu.style.display = "none";
-        contador = 0
-    }
-    contador = contador + 1
-}
 
 function aparecer() {
-    let contador = 0
     submenu.style.display = "block";
+    contador1 = contador1 + 1
 }
 
 document.addEventListener("click", desaparecer);
+
+function desaparecer() {
+    if (contador1 == 2) {
+        submenu.style.display = "none";
+        contador1 = 0;
+    }else {
+        contador1 = contador1 + 1;
+    }
+}
+
 

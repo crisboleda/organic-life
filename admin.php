@@ -1,3 +1,25 @@
+<?php
+
+    session_start();
+    include("php/conexion.php");
+
+    if(isset($_SESSION['datos'])){
+        $usuario = $_SESSION['datos']['rango'];
+        if ($usuario == admin) {
+            // Si es admin
+        }else {
+            header("Location: index.php");
+        }
+    }else {
+        header("Location: index.php");
+    }
+
+    if (isset()) {
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +50,11 @@
         <input type="radio" name="tipo-producto" value="verdura">Verdura
         <br><br>
         <input type="submit" value="Guardar">
+
+        <form action="admin.php">
+            <button name="verProductos">Ver productos</button>
+        </form>
+
     </form>
 </body>
 </html>
