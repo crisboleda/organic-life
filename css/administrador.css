@@ -46,56 +46,11 @@ header {
     width: 100%;
     background-color: #FFF;
     opacity: 0.9;
-    height: 85px; 
+    height: 85px;  
+    z-index: 1;
     margin-bottom: 0;
     border-bottom: 1.6px #f1eded solid;
     /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
-}
-
-.href-carrito, .icon-cart {
-    color: black;
-    text-decoration: none;
-}
-
-.li-perfilUsuario {
-    margin-left: 20px; 
-}
-
-.img-usuario {
-    float: right;
-    width: 35px;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    right: 0;
-    margin-right: 20px;
-    margin-top: -10px;
-    height: 35px;
-}
-
-.subMenu-usuario {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 3;
-    padding: 5px 10px;
-    float: right;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
-    background: rgb(255, 255, 255);
-}
-
-.subMenu-usuario li {
-    display: inline-block;
-    border-bottom: 2px #dddddd solid;
-    background-color: #FFF;
-    width: 90%;
-    margin: 10px 5%;
-}
-
-.subMenu-usuario li a {
-    width: 100%;
-
 }
 
 .sub-menu {
@@ -104,14 +59,13 @@ header {
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     position: relative;
 }
-
 .lista-submenu {
-    width: 65%;
-    margin: 10px 0 0 35%;
+    width: 50%;
+    margin: 10px 35%;
     float: left;
 }
 
-.lista-submenu > li {
+.lista-submenu li {
     display: inline-block;
     margin-left: 50px;
     margin-top: 10px;
@@ -126,11 +80,13 @@ header {
 
 .icon-cart {
     font-size: 30px;
-    margin-top: 10px;
-    right: 0;
+    top: 0;
+    margin-top: 18px;
     margin-right: 20px;
-    cursor: pointer;
+    right: 0;
     position: absolute;
+    float: right;
+    cursor: pointer;
 }
 
 .bajar-header {
@@ -172,12 +128,12 @@ nav {
 
 nav ul {
     margin-top: 30px;
-    position: relative;
 }
 
 nav ul li {
     display: inline-block;
     margin-right: 30px;
+    margin-bottom: 5px;
 }
 
 nav ul li a {
@@ -191,72 +147,243 @@ nav ul li a {
     color: #10E82D;
 }
 
-/* PRODUCTOS */
+/*Menu-usuario*/
 
-.productos {
-    display: flex;
-    margin: 30px;
+.icono-usuario {
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+.icono-usuario img {
+    margin-top: 30px;
+}
+
+.lista-ul {
+    margin-top: 0;
+    position: relative;
+}
+
+.lista-ul li {
+    display: inline-block;
+}
+
+.boton {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 18px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.65);
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.inicio {
+    top: 0;
+    margin-right: 30px;
+    margin-top: 35px;
+    font-size: 20px;
     font-family: 'Encode Sans Condensed', sans-serif;
 }
 
-.frutas {
-    width: 50%;
-    background: url(../imagenes/frutas.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
+.img-perfil {
+    margin-left: 200px;
 }
 
-.frutas h2 {
-    text-align: center;
-    color: black;
+.li-left {
+    margin-right: 120px;
 }
 
-.frutas p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.verduras {
-    width: 50%;
-    background: url(../imagenes/verduras.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.verduras h2 {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.verduras p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.btn {
-    background-color: #12D141;
-    font-family: 'Encode Sans Condensed', sans-serif;
-    font-size: 17px;
-    padding: 10px;
-    color: #FFF;
-    border: 2px rgb(216, 216, 216) solid;
-    display: flex;
-    justify-content: center;
-    margin: 15px auto;
+.boton:hover {
+    background-color: rgb(77, 238, 98);
+    transition: 0.5s;
     cursor: pointer;
-    width: 30%;
 }
 
-.btn:hover {
-    border-color: #FFF;
+.menu-adminstrador {
+    width: 25%;
+    display: inline-block;
+    height: 1300px;
+    box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
+    font-family: 'Encode Sans Condensed', sans-serif;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.menu-adminstrador ul {
+    list-style: none;
+}
+
+.menu-adminstrador ul li {
+    padding: 13px;
+    border-bottom: 2px rgba(0, 0, 0, 0.10) solid;
+}
+
+.menu-adminstrador ul li a{
+    text-decoration: none;
+    color: rgba(0,0,0, 0.80);
+}
+
+/*  CONTENIDO  */
+
+.container {
+    height: 100%;
+    display: inline-block;
 }
 
 
+.contenido {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    box-shadow: 0 14px 20px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.1);
+    width: 65%;
+    margin: 50px 5%;
+    float: right;
+    height: 100%;
+}
+
+.opcionMenu {
+    display: none;
+}
+
+#nuevoProducto h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#nuevoProducto form {
+    width: 80%;
+    margin: 50px auto;
+}
+
+#nuevoProducto form label {
+    font-size: 20px;
+}
+
+#nuevoProducto form input[type="text"] {
+    margin-top: 10px;
+    width: 50%;
+    border: 2px #C7C7C7 solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#nuevoProducto form input[type="text"]:focus {
+    outline: none
+}
+
+#nuevoProducto form textarea {
+    width: 50%;
+    height: 100px;
+    resize: none;
+}
+
+#nuevoProducto form input[type="submit"] {
+    border-radius: 10px;
+    border: 2px #dddddd solid;
+    background-color: #0CA302;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+    color: #FFF;
+}
+
+#nuevoProducto form input[type="submit"]:hover {
+    background-color: rgb(29, 180, 18);
+    transition: 0.5s;
+}
+
+#nuevoProducto form input[type="radio"] {
+    height: 20px;
+    margin-right: 5px;
+    width: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: #0CA302;
+}
+
+#nuevoProducto form input[type="file"] {
+    margin-top: 10px;
+}
+
+
+#nuevoAdmin h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#nuevoAdmin form {
+    width: 80%;
+    margin: 50px auto;
+}
+
+#nuevoAdminform label {
+    font-size: 20px;
+}
+
+#nuevoAdmin form input[type="text"], input[type="email"], input[type="password"] {
+    margin-top: 10px;
+    width: 50%;
+    border: 2px #C7C7C7 solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#nuevoAdmin form input[type="text"]:focus {
+    outline: none
+}
+
+#nuevoAdmin form input[type="submit"] {
+    border-radius: 10px;
+    border: 2px #dddddd solid;
+    background-color: #0CA302;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+    color: #FFF;
+}
+
+#nuevoAdmin form input[type="submit"]:hover {
+    background-color: rgb(29, 180, 18);
+    transition: 0.5s;
+}
+
+
+
+table {
+    width: 100%;
+    border: 2px #C7C7C7 solid;
+    border-collapse: collapse;
+}
+
+table tr th{
+    padding: 15px;
+}
+
+table tr th, td {
+    padding: 15px;
+    border-bottom: 2px #C7C7C7 solid;
+    border-right: 0;
+    text-align: center;
+}
+
+table button {
+    background-color: #FFF;
+    border: 0;
+}
+
+
+.table-img img{
+    height: 100px;
+    width: 100px;
+}
 
 
 /* FOOTER */
@@ -395,14 +522,4 @@ footer{
     .icon-menu {
         display: block;
     }
-
-    .sub-menu {
-        display: none;
-    }
-
-    .lista-submenu {
-        display: none;
-    }
 }
-
-/* Responsive Menú */

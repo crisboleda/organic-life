@@ -4,7 +4,7 @@
 }
 
 /* Menú responsive */
-.menu-lateralResponsive {
+.menu-lateralResponsive{
     width: 45%;
     height: 100%;
     background-color: #FFF;
@@ -46,91 +46,10 @@ header {
     width: 100%;
     background-color: #FFF;
     opacity: 0.9;
-    height: 85px; 
-    margin-bottom: 0;
-    border-bottom: 1.6px #f1eded solid;
-    /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
-}
-
-.href-carrito, .icon-cart {
-    color: black;
-    text-decoration: none;
-}
-
-.li-perfilUsuario {
-    margin-left: 20px; 
-}
-
-.img-usuario {
-    float: right;
-    width: 35px;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    right: 0;
-    margin-right: 20px;
-    margin-top: -10px;
-    height: 35px;
-}
-
-.subMenu-usuario {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 3;
-    padding: 5px 10px;
-    float: right;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
-    background: rgb(255, 255, 255);
-}
-
-.subMenu-usuario li {
-    display: inline-block;
-    border-bottom: 2px #dddddd solid;
-    background-color: #FFF;
-    width: 90%;
-    margin: 10px 5%;
-}
-
-.subMenu-usuario li a {
-    width: 100%;
-
-}
-
-.sub-menu {
-    width: 100%;
-    height: 65px;
+    height: 85px;  
+    z-index: 1;
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
-    position: relative;
-}
-
-.lista-submenu {
-    width: 65%;
-    margin: 10px 0 0 35%;
-    float: left;
-}
-
-.lista-submenu > li {
-    display: inline-block;
-    margin-left: 50px;
-    margin-top: 10px;
-}
-
-.lista-submenu li a {
-    font-family: 'Encode Sans Condensed', sans-serif;
-    text-decoration: none;
-    color: rgba(0,0,0, 0.80);
-    font-size: 20px;
-}
-
-.icon-cart {
-    font-size: 30px;
-    margin-top: 10px;
-    right: 0;
-    margin-right: 20px;
-    cursor: pointer;
-    position: absolute;
+    /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
 }
 
 .bajar-header {
@@ -172,7 +91,6 @@ nav {
 
 nav ul {
     margin-top: 30px;
-    position: relative;
 }
 
 nav ul li {
@@ -189,79 +107,122 @@ nav ul li a {
 
 .actual {
     color: #10E82D;
+
 }
 
-/* PRODUCTOS */
-
-.productos {
-    display: flex;
-    margin: 30px;
-    font-family: 'Encode Sans Condensed', sans-serif;
-}
-
-.frutas {
-    width: 50%;
-    background: url(../imagenes/frutas.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
-.frutas h2 {
+div#titulo{
     text-align: center;
-    color: black;
-}
-
-.frutas p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.verduras {
-    width: 50%;
-    background: url(../imagenes/verduras.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.verduras h2 {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.verduras p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.btn {
-    background-color: #12D141;
-    font-family: 'Encode Sans Condensed', sans-serif;
-    font-size: 17px;
-    padding: 10px;
+    font-family: ' Heebo ' , sans-serif ;
     color: #FFF;
-    border: 2px rgb(216, 216, 216) solid;
-    display: flex;
-    justify-content: center;
-    margin: 15px auto;
-    cursor: pointer;
+    position: relative;
+   
+}
+
+body{
+    background-image: url(../imagenes/contacto.jpg);
+    width:100%;
+    background-repeat: no-repeat;
+}
+
+/* CAJA */
+
+.login-box {
     width: 30%;
+    height: 530px;
+    background: black;
+    opacity: 0.8 ;color: gray;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border-radius: 20px;
+    margin-top: 160px;
+    margin-bottom: 40px;
+    
+  }
+  
+
+ .login-box h1 {
+    color: #fff;
+    font-family: ' Heebo ' , sans-serif ;
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+  
+.login-box label {
+    color: #fff;
+    font-family: ' Heebo ' , sans-serif ;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+ }
+  
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+  
+.login-box input[type="text"], .login-box input[type="password"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+  
+.login-box input[type="submit"] {
+    height: 40px;
+    background-color: #0CA302;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+  
+.login-box input[type="submit"]:hover {
+    cursor: pointer;
+    background: #10E82D;
+    color: rgb(248, 248, 248);
+}
+  
+.login-box textarea{
+    font-family: ' Heebo ' , sans-serif ;
+    font-size: 15px;
+    border-radius: 10px;
+    
 }
 
-.btn:hover {
-    border-color: #FFF;
+/* UBICACION */
+
+.ubicacion{
+    margin-top: 600px;
 }
 
+.ubicacion h2{
+    margin-left: 80px;
+    font-family: ' Heebo ' , sans-serif ;
+    color: gray;
+    font-size: 50px;
+    
+}
 
-
+.ubicacion img{
+    margin-right: 500px;
+    width: 250px;
+    height: 300px;
+}
 
 /* FOOTER */
 
 footer{
+    
     width: 100%;
     background: #202020;
     color: white;
@@ -395,14 +356,4 @@ footer{
     .icon-menu {
         display: block;
     }
-
-    .sub-menu {
-        display: none;
-    }
-
-    .lista-submenu {
-        display: none;
-    }
 }
-
-/* Responsive Menú */

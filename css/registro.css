@@ -96,13 +96,13 @@ nav ul li a {
 
 body {
     background-size: cover;
-    background: url(../imagenes/login.jpg) no-repeat top;
+    background: url(../imagenes/registro.jpg) no-repeat center;
 }
 
 form {
 	background: rgba(0,0,0,.65);
 	width: 29%;
-	height: 520px;
+	height: auto;
 	margin: 80px auto;
 	border-radius: 25px;
 	font-style: italic;
@@ -259,18 +259,12 @@ input[type="submit"]:hover {
 	bottom: 30px;
 }
 
-.error {
-    font-size: 16px;
-    color: red;
-}
-
 .img-contraseña:hover {
 	cursor: pointer;
 }
 
 .con_password {
 	position: relative;
-	margin-left: 0;
     width: 100%;
 }
 
@@ -318,4 +312,9 @@ input[type="submit"]:hover {
 	.img-contraseña {
 		display: none;
 	}
+}
+
+
+.passwordError {
+    color: tomato;
 }

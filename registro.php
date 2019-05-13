@@ -1,12 +1,14 @@
 <?php
 
     session_start();
+    sleep(2);
 
-    if (isset($_GET['url'])) {
-        $url= $_GET['url'];
+    if (isset($_SESSION['datos'])) {
+        header("Location: index.php");
     }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catálogo | OrganicLife</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/registro.css">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
 
     <link rel="stylesheet" href="iconos/style.css">
@@ -42,9 +44,9 @@
             </ul>
         </nav>  
     </div>
-    <form action="php/ingresar.php?url=<?php echo $url ?>" method="POST" autocomplete="off">
+    <form action="php/insertarUser.php" method="POST" autocomplete="off">
         <div class="container">
-            <h2>Inicia sesión<br>con tu red social</h2>
+            <h2>Regístrate<br>con tu red social</h2>
             <div class="redes">
                 <img src="imagenes/google.png">
                 <img src="imagenes/facebook.png">
@@ -59,17 +61,22 @@
                     <img src="img/hide.png" alt="" class="img-contraseña" id="no-ver">
                     <input type="password" name="clave" id="contraseñaUser" placeholder="Introduce tu contraseña" required="">
                 </div>
-                <p><a href="">¿Olvidaste tu contraseña?</a> </p>
-                <?php if (isset($_SESSION['mensaje'])) { ?>
-                    <h2 class="error"><?php echo $_SESSION['mensaje']; ?>
-                
-                <?php session_unset(); }?>
-                <div class="container-boton">
-                    <input type="submit" name="" value="Iniciar sesión">
+                <label for="contraseñaUser"><p>Confirmar contraseña:</p></label>
+                <div class="confirmar con_password">
+                    <img src="img/eye.png" alt="" class="img-contraseña" id="mostrar">
+                    <img src="img/hide.png" alt="" class="img-contraseña" id="no-ver">
+                    <input type="password" name="claveConfirm" id="contraseñaUser" placeholder="Confirma tu contraseña" required="">
                 </div>
-            </div>
-            <h4>¿No tienes cuenta?</h4> <a href="registro.php"> Regístrate aquí</a> 
+                <?php if (isset($_SESSION['errorContraseña'])) { ?>
+                    <h2 class="passwordError"> <?php echo $_SESSION['errorContraseña']?> </h2>
+                <?php session_unset(); } ?>
+                <div class="container-boton">
+                    <input type="submit" name="" value="Regístrate">
+                </div>
             
+            </div>
+            <h4>¿Ya estás registrado?</h4> <a href="login.php"> Inicia sesión</a> 
+            <br> <br> <br>
         </div>
     </form>
     <script src="js/ver_clave.js"></script>

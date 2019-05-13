@@ -33,7 +33,8 @@
 		header("Location: $url");
  	 	
 	}else{
- 	 	echo "Los datos son incorrectos";
+		$_SESSION['mensaje'] = "El correo o la contraseña es incorrecto";
+		header("Location: ../login.php");  
 	}
 
 ?>

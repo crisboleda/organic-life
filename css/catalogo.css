@@ -72,7 +72,7 @@ header {
 }
 
 .subMenu-usuario {
-    display: block;
+    display: none;
     position: absolute;
     right: 0;
     top: 0;
@@ -223,8 +223,14 @@ nav ul li a {
 }
 
 .lista-lateral li {
+    width: 100%;
     display: block;
+    border-bottom: 1px grey solid;
     margin-top: 20px;
+}
+
+.lista-lateral ul li a {
+    border-bottom: 1px grey solid;
 }
 
 .contenido-productos {

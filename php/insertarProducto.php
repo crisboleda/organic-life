@@ -15,7 +15,7 @@
 	$ruta = "../imagenesProductos/".$fotoOriginal;
 	$destinoFoto = "imagenesProductos/".$nombreFoto;
 	$resultado = @move_uploaded_file($cd, $ruta);
-
+    
     $descripcion = $_POST['descrip-producto'];
     $gramos = $_POST['gramos-producto'];
     $precio = $_POST['precio-producto'];
@@ -26,5 +26,7 @@
                            '$precio', '$tipo')";
 
     $resultado = $conexion->query($query);
+
+    header("Location: ../administrador.php");
 
 ?>

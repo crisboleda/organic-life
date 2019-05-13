@@ -1,0 +1,291 @@
+* {
+    
+}
+
+.subMenu-usuario {
+    top: 45px;
+}
+
+.cuerpo13{
+    width: 100%;
+    height: 572px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.descar13{
+    width: 80%;
+    height: 7%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 20px;
+    border: 1px #b1b0b0 solid;
+}
+.tituproduc13{
+    float: left;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px #b1b0b0 solid;
+}
+.tituproduc13 p{
+    margin-left: 4%;
+}
+
+.titucan13{
+    height: 100%;
+    float: left;
+    width: 16.666%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px #b1b0b0 solid;
+}
+
+.titucan13 p{
+    color: green;
+}
+
+
+.car13{
+    width: 80%;
+    height: 50%;
+    border: 1px #b1b0b0 solid;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    align-items: center;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+}
+.produc13{
+    width: 50%;
+    height: 100%;
+    border: 1px #b1b0b0 solid;
+
+    
+}
+.img13{
+    width: 100%;
+    height: auto;
+    border: 1px #b1b0b0 solid;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.img13 img{
+    height: 500px;
+    width: 50%;
+}
+.des13{
+    width: 100%;
+    height: 30%;
+    border: 1px #b1b0b0 solid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.des13 h6 {
+    font-size: 20px;
+}
+
+.contidad13{
+    float: left;
+    width: 16.666%;
+    height: 100%;
+    border: 1px #b1b0b0 solid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.suptotal{
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: 0px 10%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    border: 1px #b1b0b0 solid;
+}
+.sup{
+    display: inline-block;
+    width: 50%;
+}
+.sup p{
+    float: right;
+    text-align: end;
+}
+
+
+.pagos{
+    float: left;
+    width: 50%;
+}
+.pagos p{
+    margin-left: 2%
+}
+
+
+.comprar{
+    margin-top: 1%;
+    width: 80%;
+    height: 8%;
+    float: left;
+}
+
+.for13{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.ya13{
+    width: 50%;
+    float: left;
+
+}
+.ya13 h5{
+    text-align: end;
+    margin-right: 2%
+
+}
+
+.empre13{
+    width: 30%;
+    float: left;
+}
+.empre13 img{
+    width: 20%;
+    height: 50%;
+    float: left;
+
+    
+}
+.comya13{
+    padding: 7px;
+    height: 50%;
+    margin: 30px 25% 0 25%;
+    width: 50%;
+    background-color: rgb(232, 13, 12);
+    border-radius: 25px;
+    font-size: 27px;
+    box-shadow: 0px 0px 5px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.comya13:hover {
+    background-color: rgba(238, 38, 38, 0.97);
+}
+
+.comya13 h5 {
+    color: #ffffff;
+    text-align: center;
+}
+.comya13 a{
+    text-decoration: none;
+}
+
+.continuar13{
+    width: 80%;
+    height: 6%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.continuarlin{
+    padding: 7px;
+    height: 50%;
+    margin: 20px 25% 80px 25%;
+    width: 50%;
+    background-color: #ff9a00;
+    border-radius: 25px;
+    font-size: 27px;
+    box-shadow: 0px 0px 5px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.continuarlin:hover {
+    background-color: #f79b12ee;
+}
+
+.continuarlin a{
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+
+/* Carrito */
+
+table {
+    width: 80%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    margin: 60px 10% 40px 10%;
+    border: 2px #C7C7C7 solid;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+table tr th{
+    padding: 15px;
+    border-collapse: collapse;
+}
+
+table tr th, td {
+    padding: 15px;
+    border: 2px #C7C7C7 solid;
+    text-align: center;
+}
+
+table img {
+    width: 35%;
+    height: 160px;
+}
+
+.btn-delete img{
+    width: 30px;
+    height: 30px;
+}
+
+.btn-delete {
+    background: rgba(0, 0, 0, 0.0);
+    border: 0;
+}
+
+.pagos ul li {
+    display: inline-block;
+    margin-left: 15px;
+    height: 100%;
+    font-size: 17px;
+}
+
+.pagos ul {
+    padding: 0;
+    height: 50px;
+}
+
+.pagos ul li img {
+    height: 70px;
+    width: 70px;
+    margin-top: -10;
+}
+
+.pagos p {
+    float: left;
+}
+
+
+

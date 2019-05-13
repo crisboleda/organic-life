@@ -46,56 +46,11 @@ header {
     width: 100%;
     background-color: #FFF;
     opacity: 0.9;
-    height: 85px; 
+    height: 85px;  
+    z-index: 1;
     margin-bottom: 0;
     border-bottom: 1.6px #f1eded solid;
     /* box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24); */
-}
-
-.href-carrito, .icon-cart {
-    color: black;
-    text-decoration: none;
-}
-
-.li-perfilUsuario {
-    margin-left: 20px; 
-}
-
-.img-usuario {
-    float: right;
-    width: 35px;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    right: 0;
-    margin-right: 20px;
-    margin-top: -10px;
-    height: 35px;
-}
-
-.subMenu-usuario {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 3;
-    padding: 5px 10px;
-    float: right;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
-    background: rgb(255, 255, 255);
-}
-
-.subMenu-usuario li {
-    display: inline-block;
-    border-bottom: 2px #dddddd solid;
-    background-color: #FFF;
-    width: 90%;
-    margin: 10px 5%;
-}
-
-.subMenu-usuario li a {
-    width: 100%;
-
 }
 
 .sub-menu {
@@ -104,14 +59,13 @@ header {
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     position: relative;
 }
-
 .lista-submenu {
-    width: 65%;
-    margin: 10px 0 0 35%;
+    width: 50%;
+    margin: 10px 35%;
     float: left;
 }
 
-.lista-submenu > li {
+.lista-submenu li {
     display: inline-block;
     margin-left: 50px;
     margin-top: 10px;
@@ -126,11 +80,13 @@ header {
 
 .icon-cart {
     font-size: 30px;
-    margin-top: 10px;
-    right: 0;
+    top: 0;
+    margin-top: 18px;
     margin-right: 20px;
-    cursor: pointer;
+    right: 0;
     position: absolute;
+    float: right;
+    cursor: pointer;
 }
 
 .bajar-header {
@@ -167,17 +123,20 @@ header {
 
 nav {
     float: right;
+    right: 0;
+    margin-right: 40px;
+    width: 32%;
     margin-right: 10px;
 }
 
 nav ul {
-    margin-top: 30px;
     position: relative;
 }
 
 nav ul li {
     display: inline-block;
     margin-right: 30px;
+    margin-bottom: 7px;
 }
 
 nav ul li a {
@@ -191,73 +150,74 @@ nav ul li a {
     color: #10E82D;
 }
 
-/* PRODUCTOS */
+/*Menu-usuario*/
 
-.productos {
-    display: flex;
-    margin: 30px;
+.icono-usuario {
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+.icono-usuario img {
+    margin-top: 30px;
+}
+
+.lista-ul {
+    position: relative;
+    width: 100%;
+}
+
+.li-left {
+    margin-right: 60px;
+}
+
+.inicio {
+    position: absolute;
+    top: 0;
+    margin-right: 30px;
+    margin-top: 35px;
+    font-size: 20px;
     font-family: 'Encode Sans Condensed', sans-serif;
 }
 
-.frutas {
-    width: 50%;
-    background: url(../imagenes/frutas.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
+.img-perfil {
+    margin-left: 200px;
 }
 
-.frutas h2 {
-    text-align: center;
-    color: black;
-}
-
-.frutas p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.verduras {
-    width: 50%;
-    background: url(../imagenes/verduras.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.verduras h2 {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.75);
-}
-
-.verduras p {
-    font-size: 20px;
-    text-align: center;
-    color: black;
-    margin: 5px 50px;
-}
-
-.btn {
-    background-color: #12D141;
+.boton {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    top: 0;
+    margin-top: 17px;
+    right: 0;
+    float: right;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.65);
     font-family: 'Encode Sans Condensed', sans-serif;
-    font-size: 17px;
-    padding: 10px;
-    color: #FFF;
-    border: 2px rgb(216, 216, 216) solid;
-    display: flex;
-    justify-content: center;
-    margin: 15px auto;
+    font-size: 20px;
+}
+
+.boton:hover {
+    background-color: rgb(77, 238, 98);
+    transition: 0.5s;
     cursor: pointer;
-    width: 30%;
 }
+.menu-usuario {
+    width: 28%;
+    height: 600px;
+    box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
+    font-family: 'Encode Sans Condensed', sans-serif;
+    padding-top: 20px;
+}   
 
-.btn:hover {
-    border-color: #FFF;
+.menu-usuario ul li {
+    padding: 10px;
+    border-bottom: 2px rgba(0, 0, 0, 0.10) solid;
 }
-
-
-
+.menu-usuario ul li a{
+    text-decoration: none;
+    color: rgba(0,0,0, 0.80);
+}
 
 /* FOOTER */
 
@@ -385,24 +345,3 @@ footer{
         margin-top: 40px;
     }
 }
-
-
-@media screen and (max-width: 830px) {
-    header nav {
-        display: none;
-    }
-
-    .icon-menu {
-        display: block;
-    }
-
-    .sub-menu {
-        display: none;
-    }
-
-    .lista-submenu {
-        display: none;
-    }
-}
-
-/* Responsive Menú */

@@ -1,16 +1,22 @@
 <?php
     session_start();
     include("php/conexion.php");
-    
+
     if (isset($conexion)) {
         echo "";
     }else {
         echo "Error";
     }
 
-    $query = "SELECT * FROM productos";
-    $resultado = $conexion->query($query);
+    if (isset($_GET['id'])) {
+        $tipo = $_GET['id'];
 
+    }else {
+        $tipo = 'fruta';
+    }
+
+    $query = "SELECT * FROM productos WHERE tipo = '$tipo'";
+    $resultado = $conexion->query($query);
 
 ?> 
 
@@ -30,19 +36,19 @@
     <header id="cabecera">
         <img src="imagenes/logo.png" class="img-logo">
         <h1 class="logo">Organic Life</h1>
-        <img src="img/menu.png" class="icon-menu" id="boton-menu">
+        <img src="imagenes/menu.png" class="icon-menu" id="boton-menu">
         <nav>
             <ul>
                 <?php 
                     if (empty($_SESSION['datos'])) { ?>
                      
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
-                    <li><a href="registrarse.html">Registrarse</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="registro.php">Registrarse</a></li>
+                    <li><a href="contacto.php">Contacto</a></li>
                     <li><a href=""><span class="icon-search"></span></a></li>
                     
                 <?php }else { ?>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
                 <li class="li-perfilUsuario">
                     <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
@@ -55,21 +61,21 @@
     <div class="sub-menu">
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="">OrganicLife</a></li>
-            <li><a href="">Blog</a></li>
+            <li><a href="organiclife.html">OrganicLife</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <ul class="subMenu-usuario" id="submenu-perfil">
-                <li><a href="">Perfil</a></li>
+                <li><a href="php/validarUsuario.php">Perfil</a></li>
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>
             </ul>
-            <span class="icon-cart"></span>
+            <a href="carrito.php"><span class="icon-cart"></span></a>
         </ul>
     </div>  
     <div class="menu-lateralResponsive" id="menu-responsive">
         <nav class="nav-responsive">
             <ul>
                 <li><a href="login.php?url=index.html">Entrar</a></li>
-                <li><a href="registrarse.html">Registrarse</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
             </ul>
         </nav>  
@@ -77,15 +83,15 @@
     <div class="menu-lateral">
         <nav class="submenu-lateral">
             <ul class="lista-lateral">
-                <li id="li-selector"><a>Subcategorías</a><span class="icon-circle-down"></span>
+                <li><a>Productos que ofrecemos:</a><span class="icon-circle-down"></span>
                     <ul class="submenu-catergorias" id="submenu-cat">
-                        <li><a href="">Frutas</a></li>
-                        <li><a href="">Verduras</a></li>
+                        <li><a href="catalogo.php?tipo=frutas">Frutas</a></li>
+                        <li><a href="catalogo.php?tipo=verduras">Verduras</a></li>
                     </ul>
                 </li>
-                <li><a href="">Frutas</a></li>
-                <li><a href="">Verduras</a></li>
-                <li><a>Rango de precios</a><span class="icon-circle-down"></span>
+                <li><a href="catalogo.php?id=fruta">Frutas</a></li>
+                <li><a href="catalogo.php?id=verdura">Verduras</a></li>
+                <!-- <li><a>Rango de precios</a><span class="icon-circle-down"></span>
                     <ul>
                         <li><a href="">$1,000 - 4,999</a></li>
                         <li><a href="">$5,000 - 9,999</a></li>
@@ -93,7 +99,7 @@
                         <li><a href="">$15,000 - 19,999</a></li>
                         <li><a href="">$20,000 - 24,999</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>
@@ -104,7 +110,7 @@
                 <img src="<?php echo $columna['imagenProducto'] ?>">
                 <h2><?php echo $columna['nombreProducto']?></h2>
                 <p><em><?php echo $columna['gramosProducto'] ?></em></p><br>
-                <h3>Precio: <?php echo $columna['precioProducto'] ?></h3><br>
+                <h3>Precio: $ <?php echo $columna['precioProducto'] ?></h3><br>
                 <button><a href="descripcion.php?id=<?php echo $columna['id_producto']?>">Ver más</a></button>
             </div>
         <?php } ?>

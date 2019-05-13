@@ -5,9 +5,9 @@
     if(isset($_SESSION['datos'])){
         $usuario = $_SESSION['datos']['rango'];
         if ($usuario == "admin") {
-            header("Location: ../admin.php");
+            header("Location: ../administrador.php");
         }else {
-            header("Location: ../catalogo.php");
+            header("Location: ../usuario.php");
         }
     }else {
         header("Location: ../index.php");
