@@ -11,6 +11,7 @@
         $id_usuario = $_SESSION['datos']['id'];
     }else {
         header("Location: ../login.php");
+        $_SESSION['loginCarrito'] = "Debes ingresar con tu cuenta para acceder al carrito de compras";
     }
 
     $cantidad = $_POST['cantidadTotal'];

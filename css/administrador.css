@@ -206,8 +206,7 @@ nav ul li a {
 
 .menu-adminstrador {
     width: 25%;
-    display: inline-block;
-    height: 1300px;
+    height: 100%;
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     font-family: 'Encode Sans Condensed', sans-serif;
     padding-top: 20px;
@@ -229,11 +228,6 @@ nav ul li a {
 }
 
 /*  CONTENIDO  */
-
-.container {
-    height: 100%;
-    display: inline-block;
-}
 
 
 .contenido {

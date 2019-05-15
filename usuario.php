@@ -65,35 +65,6 @@
         </ul>
     </div>
 
-    <div class="contenido">
-        <div id="nuevoAdmin" class="opcionMenu">
-            <h2>Agregar un nuevo Administrador</h2>
-            <form action="php/insertarNewAdmin.php" method="POST">
-                <label for="nombreAdmin">Nombre:</label><br>
-                <input type="text" id="nombreAdmin" name="nombre-admin">
-                <br><br>
-                <label for="apellidoAdmin">Apellido:</label><br>
-                <input type="text" id="apellidoAdmin" name="apellido-admin">
-                <br><br>
-                <label for="emailAdmin">Correo electrónico:</label><br>
-                <input type="email" id="emailAdmin" name="correo-admin">
-                <br><br>
-                <label for="password">Contraseña:</label><br>
-                <input type="password" id="password" name="clave-admin">
-                <br><br>
-                <label for="domicilio">Dirección domicilio:</label><br>
-                <input type="text" id="domicilio" name="direccion-admin">
-                <br><br>
-                <label for="ciudad">Ciudad:</label><br>
-                <input type="text" id="ciudad" name="ciudad-admin">
-                <br><br>
-                <label for="telefono">Telefono/Celular:</label><br>
-                <input type="text" id="telefono" name="telefono-admin">
-                <br><br>
-                <input type="submit" value="Agregar como administrador">
-            </form>
-        </div>
-    </div>
 
     <!--Footer-->
     <footer>

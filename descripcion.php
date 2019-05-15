@@ -62,12 +62,12 @@
     <header id="cabecera">
         <img src="imagenes/logo.png" class="img-logo">
         <h1 class="logo">Organic Life</h1>
-        <img src="img/menu.png" class="icon-menu" id="boton-menu">
+        <img src="imagenes/menu.png" class="icon-menu" id="boton-menu">
         <nav>
             <ul>
-                <li><a href="login.html">Entrar</a></li>
-                <li><a href="registrarse.html">Registrarse</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.php">Entrar</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
             </ul>
         </nav>  
@@ -75,9 +75,9 @@
     <div class="menu-lateralResponsive" id="menu-responsive">
         <nav class="nav-responsive">
             <ul>
-                <li><a href="login.html">Entrar</a></li>
-                <li><a href="registrarse.html">Registrarse</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.php">Entrar</a></li>
+                <li><a href="registro.php">Registrarse</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""></a></li>
             </ul>
         </nav>  
@@ -113,6 +113,15 @@
         </div> 
       
     </div>
+    <div class="des123">
+        <div class="descipcion_producto">
+            <div class="des1">
+                <h5>Descripción del producto</h5>
+                <p><?php echo $columna['descripcionProducto'] ?></p>
+            </div>
+            
+        </div>
+    </div> 
     <div>
         <div class="rank">
                     <div class="espacio12">
@@ -133,15 +142,6 @@
                     
         </div>
     </div>
-    <div class="des123">
-        <div class="descipcion_producto">
-            <div class="des1">
-                <h5>Descripción del producto</h5>
-                <p><?php echo $columna['descripcionProducto'] ?></p>
-            </div>
-            
-        </div>
-    </div> 
     <!--fin de la descripcion-->
 
     <!--Footer-->

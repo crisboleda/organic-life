@@ -1,19 +1,7 @@
 <?php
 	session_start();
 	sleep(1);
-
 	include("conexion.php");
-
-	if (isset($_GET['url'])) {
-        $url= $_GET['url'];
-
-    }
-
-	if (isset($conexion)) {
-    	echo "";
-	}else {
-    	echo "Error en la conexión";
-	}
 
 	$correo = $_POST['emailUser'];
 	$clave = $_POST['clave'];
@@ -30,10 +18,10 @@
 
  		$usuario = $_SESSION['datos']['rango'];
 		
-		header("Location: $url");
+		header("Location: ../index.php");
  	 	
 	}else{
-		$_SESSION['mensaje'] = "El correo o la contraseña es incorrecto";
+		$_SESSION['mensaje'] = "El correo electrónico o la contraseña son incorrectos";
 		header("Location: ../login.php");  
 	}
 

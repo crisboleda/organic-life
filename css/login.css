@@ -274,6 +274,25 @@ input[type="submit"]:hover {
     width: 100%;
 }
 
+.inicia_primero {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 20px;
+    background-color: rgba(255, 217, 0, 0.60);
+    width: 38%;
+    text-align: center;
+    padding: 15px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.inicia_primero span {
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+    color: rgba(28, 28, 34, 0.651);
+}
+
 #no-ver {
 	width: 26px;
 	height: 26px;

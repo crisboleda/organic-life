@@ -123,6 +123,39 @@
                 </form>
             </div>
 
+            <div id="listaUsuarios" class="opcionMenu">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo electrónico</th>
+                        <th>Domicilio</th>
+                        <th>Ciudad residencia</th>
+                        <th>Telefono</th>
+                        <th>Rango</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    <?php
+                        $consultaUser = "SELECT * FROM usuario";
+                        $resultadoUser = $conexion->query($consultaUser);
+
+                        while ($datos = mysqli_fetch_array($resultadoUser)){?>
+                        <tr>
+                            <td><h2><?php echo $datos['id'] ?></td>
+                            <td><h2><?php echo $datos['nombreUser']?></h2></td>
+                            <td><p><?php echo $datos['apellidoUser']?></p></td>
+                            <td><p><?php echo $datos['correoUser'] ?></p></td>
+                            <td><h3><?php echo $datos['direccionUser'] ?></h3></td>
+                            <td><p><?php echo $datos['ciudad'] ?></p></td>
+                            <td><h2><?php echo $datos['telefono'] ?></td>
+                            <td><p><?php echo $datos['rango']?></p></td>
+                            <td><button><a href="php/deleteUser.php?id=<?php echo $datos['id'] ?>"><img src="imagenes/basura.png"></a></button></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
+
             <div id="listaProductos" class="opcionMenu">
                 <table>
                     <tr>
@@ -148,6 +181,7 @@
                             <td><p><?php echo $columna['gramosProducto'] ?></p></td>
                             <td><h3><?php echo $columna['precioProducto'] ?></h3></td>
                             <td><p><?php echo $columna['tipo'] ?></p></td>
+                            <td><h2><?php echo $columna['id_producto'] ?></td>
                             <td><button><a href="php/deleteproducto.php?id=<?php echo $columna['id_producto'] ?>"><img src="imagenes/basura.png"></a></button></td>
                         </tr>
                     <?php } ?>
@@ -161,7 +195,7 @@
                 <li><a href="#" class="optionA" value="">Tu perfil</a></li>
                 <li><a href="#" class="optionA" name="nuevoProducto">Ingresar nuevo producto</a></li>
                 <li><a href="#" class="optionA" name="nuevoAdmin">Agregar nuevo administrador</a></li>
-                <li><a href="#" class="optionA" value="">Lista de clientes</a></li>
+                <li><a href="#" class="optionA" name="listaUsuarios">Lista de clientes</a></li>
                 <li><a href="#" class="optionA" name="listaProductos">Lista de productos</a></li>
                 <li><a href="#" class="optionA" value="">Historial de ventas</a></li>
                 <li><a href="#" class="optionA" value="">Panel de control</a></li>

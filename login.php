@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
 
+    <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
     <link rel="stylesheet" href="iconos/style.css">
 </head>
 <body>
@@ -28,7 +29,7 @@
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
             </ul>
         </nav>
@@ -37,12 +38,27 @@
         <nav class="nav-responsive">
             <ul>
                 <li><a href="login.html">Entrar</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
             </ul>
         </nav>  
     </div>
-    <form action="php/ingresar.php?url=<?php echo $url ?>" method="POST" autocomplete="off">
+
+    <?php if (isset($_SESSION['loginCarrito'])) { ?>
+        <div class="inicia_primero" id="ventana-emergente">
+            <?php echo $_SESSION['loginCarrito']; ?>
+            <span class="icon-cancel-circle" id="close-alert"></span>
+        </div>
+    <?php session_unset(); } ?>
+    <?php 
+        if (isset($_SESSION['mensaje'])) { ?>
+            <div class="inicia_primero" id="ventana-emergente">
+                <?php echo $_SESSION['mensaje']; ?>
+                    <span class="icon-cancel-circle" id="close-alert"></span>
+            </div>      
+    <?php session_unset(); } ?>
+
+    <form action="php/ingresar.php" method="POST" autocomplete="off">
         <div class="container">
             <h2>Inicia sesión<br>con tu red social</h2>
             <div class="redes">
@@ -55,15 +71,9 @@
                 <input type="email" name="emailUser" id="nameUser" placeholder="Correo electrónico" required=""> <br>
                 <label for="contraseñaUser"> <p>Contraseña:</p></label>
                 <div class="container con_password">
-                    <img src="img/eye.png" alt="" class="img-contraseña" id="mostrar">
-                    <img src="img/hide.png" alt="" class="img-contraseña" id="no-ver">
                     <input type="password" name="clave" id="contraseñaUser" placeholder="Introduce tu contraseña" required="">
                 </div>
                 <p><a href="">¿Olvidaste tu contraseña?</a> </p>
-                <?php if (isset($_SESSION['mensaje'])) { ?>
-                    <h2 class="error"><?php echo $_SESSION['mensaje']; ?>
-                
-                <?php session_unset(); }?>
                 <div class="container-boton">
                     <input type="submit" name="" value="Iniciar sesión">
                 </div>
@@ -73,5 +83,6 @@
         </div>
     </form>
     <script src="js/ver_clave.js"></script>
+    <script src="js/cerrarVentanita.js"></script>
 </body>
 </html>

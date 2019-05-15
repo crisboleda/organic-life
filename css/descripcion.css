@@ -124,16 +124,19 @@ input[type="number"]::-webkit-inner-spin-button, input[type=number]::-webkit-out
 
 
 .descipcion_producto{
+    padding: 20px;
     border:50px;
     margin-top: 20px;
+    font-size: 25px;
     width: 90%;
-    height: 250px;
+    height: auto;
     background-color:#ffffff;
     box-shadow: 0px 0px 10px;
     margin-bottom: 10%;
     flex-direction: column;
     display: flex;
     justify-content: center;
+    font-family: 'Nanum Gothic', sans-serif;
     align-items: center;
 }
 .descipcion_producto h5,p{
@@ -141,7 +144,12 @@ input[type="number"]::-webkit-inner-spin-button, input[type=number]::-webkit-out
     text-align: center;
 }
 
-
+.des1 h5 {
+    font-weight: 800;
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
 
 
 
@@ -152,6 +160,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type=number]::-webkit-out
     background-color: #ff9a00;
     flex-direction: column;
     display: flex;
+    
     justify-content: center;
     align-items: center;
     border-radius: 25px;
