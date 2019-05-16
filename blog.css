@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.parte1 {
+    background: url(../imagenes/fondoblog.jpg) no-repeat top;
+    height: 400px;
+}
+
+.parte1 h1 {
+   padding: 20px;
+   font-size: 40px;
+   margin-left: 130px;
+   color: #12D141;
+   font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.parte1 p {
+    width: 45%;
+    padding: 20px;
+    font-size: 20px;
+    text-align: justify;
+    color: #202020;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.main .articles{
+    width: 68%;
+    margin-top: 20px;  
+    float: left;
+}
+
+.article1 {
+    margin-left: 20px;
+    border: 1px #f0f0f0 solid;
+    margin-bottom: 20px;
+}
+
+.article1:hover {
+    border: 2px #12D141 solid;
+}
+
+.article1:hover h5 {
+    color: white;
+    background-color: #202020;
+    transition: 0.3s;
+}
+
+.article1 h2{
+    padding: 10px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: #202020;
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
+.article1 h5 {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 18px;
+    display: flex;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.encabezado {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+.article1 p{
+    padding: 15px;
+    width: 50%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: #202020;
+    font-size: 20px;
+    text-align: justify;
+    margin-right: 20px;
+    margin-bottom: 25px;
+}
+
+.article2 h2{
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: #202020;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.article2 p{
+    width: 90%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: #202020;
+    font-size: 20px;
+    text-align: justify;
+    margin-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+}
+
+article img{
+    float: right;
+    width: 40%;
+    height: 40%;
+    margin-bottom: 30px;
+}
+
+aside{
+    border: 2px #f0f0f0 solid;
+    margin-top: 20px;
+    margin-right: 12px;
+    width: 28%;
+    float: right;
+    margin-left: 10px;
+}
+
+aside img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+aside h3{
+    font-family: 'Encode Sans Condensed', sans-serif;
+    text-align: center;
+    color: #202020;
+    font-size: 30px;
+}
+aside p{
+    padding: 10px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: #202020;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.suscripcion {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    float: right;
+    width: 28%;
+}
+
+.suscripcion h1 {
+    margin-bottom: 20px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    text-align: justify;
+}
+
+.recomendados {
+    width: 30%;
+    margin-bottom: 3%;
+    float: right
+}
+
+.recomendados h1 {
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.recomendados p {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    text-align: justify;
+    margin-left: 20px;
+}
+
+iframe {
+    margin-left: 10px;
+    width: 100%;
+}
+
+input[type="email"] {
+    padding: 2.5%;
+    width: 60%;
+    font-family: sans-serif;
+    color: #202020;
+}
+
+input[type="submit"] {
+    width: 30%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    background: #12D141;
+    color: #FFF;
+    padding: 3%;
+    border: #f0f0f0;
+    border-radius: 3px;
+}

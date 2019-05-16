@@ -201,20 +201,18 @@
 		</div>
 	</div>
 
-    <!--Footer-->
-    <footer>
+<!--Footer-->
+<footer>
         <div class="contenedor">
             <div class="cont-body">                
                 <div class="columna1">    
-                    <h1> Entérate de nuevos eventos</h1>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
-                            </form>
-                        </nav>
-                    </div>
-                    <div class="columna2">
+                        <div class="suscripcion">
+                                <h1> Entérate de nuevos eventos</h1>
+                                <input type="email" name="emailUser" id="nameUser" placeholder="Correo electrónico" required="">
+                                <input type="submit" name="" value="Suscríbete">
+                        </div>
+                </div>
+                <div class="columna2">
             
                         <h1> Nuestras Redes Sociales </h1>
                         <div class="fila">
@@ -231,12 +229,10 @@
                             <img src="imagenes/twitter.png">
                             <label> Síguenos en Twitter</label>
                         </div>
-                    </div>
-            
-                    <div class="columna3">
-            
-                        <h1> Cambiar Idioma </h1>
-                        <div class="fila-columna3">
+                </div>
+                <div class="columna3">
+                    <h1> Cambiar Idioma </h1>
+                    <div class="fila-columna3">
                         <fieldset>
                             <div class="form-group">
                                 <select class="custom-select">
@@ -249,22 +245,19 @@
                     </div>  
                 </div>
             </div>
-            <div class="cont-footer">
+            <br><div class="cont-footer">
                 <div class="alineacion">
                 <div class="copyright">
                     © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
                 </div>
-            
                 <div class="nosotros">
                     <a href=""> Preguntas Frecuentes |</a>
-                    <a href="terminos-condiciones.html"> Términos y condiciones </a>
+                    <a href=""> Términos y condiciones </a>
                 </div>
             </div>
         </div>
     </footer>
-
     
-
     <script src="js/menu.js"></script>
     <script src="js/aparecerIcono.js"></script>
 </body>
