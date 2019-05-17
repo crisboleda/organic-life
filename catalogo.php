@@ -41,13 +41,14 @@
             <ul>
                 <?php 
                     if (empty($_SESSION['datos'])) { ?>
-                     
+                    <li><a href="index.php">Incio</a></li>
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                     <li><a href="registro.php">Registrarse</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
                     <li><a href=""><span class="icon-search"></span></a></li>
                     
                 <?php }else { ?>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
                 <li class="li-perfilUsuario">
@@ -61,8 +62,8 @@
     <div class="sub-menu">
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="organiclife.html">OrganicLife</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="organiclife.php">OrganicLife</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <ul class="subMenu-usuario" id="submenu-perfil">
                 <li><a href="php/validarUsuario.php">Perfil</a></li>
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>

@@ -24,8 +24,10 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+
     <!-- Foonts -->
     <link rel="stylesheet" href="iconos/style.css">
+    <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
 
     <!-- Slider -->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
@@ -69,6 +71,7 @@
                     <li><a href=""><span class="icon-search"></span></a></li>
                     
                 <?php }else { ?>
+                    <li><a href="index.php">Inicio</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
                     <li><a href=""><span class="icon-search"></span></a></li>
                     <li class="li-perfilUsuario">
@@ -93,6 +96,42 @@
             </ul>
         </nav>  
     </div>
+
+    <!-- VENTANA EMERGENTE COMPRAR YA -->
+        
+    <div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header">
+                    <span class="icon-cancel-circle" id="close-alert"></span>
+                    <h2>INFORMACIÓN DE COMPRA</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <h3>Información de envío</h3>
+                        <br>
+                        <label for="">Ciudad: </label>
+                        <input type="text" name="ciudad-envio" placeholder="Destino del producto" class="campo">
+                        <label for="" class="cod-postal">Código Postal: </label>
+                        <input type="text" name="postal-envio" placeholder="Su código postal" class="campo"><br>
+                        <label for="">Dirección de residencia: </label>
+                        <input type="text" name="direccion-envio" placeholder="Ingrese su dirección" class="campo-addres"><br>
+                        <div class="linea-separadora"></div>
+                        <h3>Método de pago</h3>
+                        <ul>
+                            <li><input type="radio" name="metodo-pago" value="tarjeta mastercard"><img src="imagenes/mastercard.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="paypal"><img src="imagenes/paypal.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="tarjeta visa"><img src="imagenes/visa.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="bitcoin"><img src="imagenes/bitcoin.png"></li>
+                            <li><input type="radio" name="metodo-pago" value=""><img src="imagenes/payment.png"></li>
+                        </ul>
+                        <input type="submit" value="COMPRAR">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!--Inicio del carrito de compras-->
         
@@ -145,7 +184,7 @@
         </div>
         
         <div class="comya13">
-            <a href="#"><h5>¡Compra ahora!</h5></a>
+            <a href="#" id="btn-comprar"><h5>¡Compra ahora!</h5></a>
         </div>
 
         <div class="continuarlin">
@@ -215,7 +254,8 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="js/ventanaComprar.js"></script>
     <script src="js/aparecerIcono.js"></script>
 </body>
 </html>

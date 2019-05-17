@@ -58,13 +58,14 @@
             <ul>
                 <?php 
                     if (empty($_SESSION['datos'])) { ?>
-                     
+                    <li><a href="index.php">Inicio</a></li>
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                     <li><a href="registro.php">Registrarse</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
                     <li><a href=""><span class="icon-search"></span></a></li>
                     
                 <?php }else { ?>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
                 <li class="li-perfilUsuario">
@@ -79,7 +80,7 @@
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
             <li><a href="organiclife.html">OrganicLife</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.php">Blog</a></li>
             <ul class="subMenu-usuario" id="submenu-perfil">
                 <li><a href="php/validarUsuario.php">Perfil</a></li>
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>
@@ -99,7 +100,7 @@
                     <li><a href=""><span class="icon-search"></span></a></li>
                     <li><a href="catalogo.php">Catálogo</a></li>
                     <li><a href="organiclife.html">OrganicLife</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="blog.php">Blog</a></li>
                     <ul class="subMenu-usuario" id="submenu-perfil">
                         <li><a href="php/validarUsuario.php">Perfil</a></li>
                         <li><a href="php/cerrar.php">Cerrar sesión</a></li>
@@ -114,7 +115,7 @@
                 </li>
                 <li><a href="catalogo.php">Catálogo</a></li>
                 <li><a href="organiclife.html">OrganicLife</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.php">Blog</a></li>
                 <ul class="subMenu-usuario" id="submenu-perfil">
                     <li><a href="php/validarUsuario.php">Perfil</a></li>
                     <li><a href="php/cerrar.php">Cerrar sesión</a></li>
@@ -129,9 +130,8 @@
         <div class="slider-wrapper theme-mi-slider">
             <div id="slider" class="nivoSlider">     
                 <img src="img-slider/slider1.png">
-                <img src="img-slider/slider2.jpg">
-                <img src="img-slider/slider3.jpg">
-                <img src="img-slider/slider3.jpg">
+                <img src="img-slider/slider2.png">
+                <img src="img-slider/slider3.png">
             </div> 
         </div>
     </div>
@@ -155,7 +155,7 @@
 		<div class="slider-testimonial">
 			<div class="testimonial-item">
 				<div class="testimonial-client">
-					<img src="testimonios/client.png" alt="">
+					<img src="testimonios/testimonio5.png" alt="">
 					<p class="client-name">Fernando Castro</p>
 				</div>
 				<div class="testimonial-text">
@@ -164,7 +164,7 @@
             </div>
             <div class="testimonial-item">
 				<div class="testimonial-client">
-					<img src="testimonios/testimonio1.jpg" alt="">
+					<img src="testimonios/testimonio1.png" alt="">
 					<p class="client-name">Sara Morales</p>
 				</div>
 				<div class="testimonial-text">
@@ -173,7 +173,7 @@
 			</div>
 			<div class="testimonial-item">
 				<div class="testimonial-client">
-					<img src="testimonios/testimonio2.jpg" alt="">
+					<img src="testimonios/testimonio2.png" alt="">
 					<p class="client-name">Adriana Fernandez</p>
 				</div>
 				<div class="testimonial-text">
@@ -182,7 +182,7 @@
             </div>
             <div class="testimonial-item">
 				<div class="testimonial-client">
-					<img src="testimonios/testimonio3.jpg" alt="">
+					<img src="testimonios/testimonio3.png" alt="">
 					<p class="client-name">Maria Efijenia</p>
 				</div>
 				<div class="testimonial-text">
@@ -191,7 +191,7 @@
             </div>
             <div class="testimonial-item">
 				<div class="testimonial-client">
-					<img src="testimonios/testimonio4.jpg" alt="">
+					<img src="testimonios/testimonio4.png" alt="">
 					<p class="client-name">Cristhian Arboleda</p>
 				</div>
 				<div class="testimonial-text">
@@ -203,65 +203,61 @@
 
     <!--Footer-->
     <footer>
-        <div class="contenedor">
-            <div class="cont-body">                
-                <div class="columna1">    
-                    <h1> Entérate de nuevos eventos</h1>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
-                            </form>
-                        </nav>
+    <div class="contenedor">
+        <div class="cont-body">                
+            <div class="columna1">    
+                    <div class="suscripcionfooter">
+                            <h1> Entérate de nuevos eventos</h1>
+                            <input type="email" name="emailUser" id="suscribefooter" placeholder="Correo electrónico" required="">
+                            <input type="submit" id="submitfooter" name="" value="Suscríbete">
                     </div>
-                    <div class="columna2">
-            
-                        <h1> Nuestras Redes Sociales </h1>
-                        <div class="fila">
-                            <img src="imagenes/facebook.png">
-                            <label> Síguenos en Facebook</label>
-                        </div> 
-    
-                        <div class="fila">
-                            <img src="imagenes/google.png">
-                            <label> Síguenos en Google+</label>
-                        </div>
-            
-                        <div class="fila">
-                            <img src="imagenes/twitter.png">
-                            <label> Síguenos en Twitter</label>
-                        </div>
-                    </div>
-            
-                    <div class="columna3">
-            
-                        <h1> Cambiar Idioma </h1>
-                        <div class="fila-columna3">
-                        <fieldset>
-                            <div class="form-group">
-                                <select class="custom-select">
-                                    <option selected="">Español</option>
-                                    <option value="1">Inglés</option>
-                                    <option value="2">Portugés</option>
-                                </select>
-                            </div>
-                        </fieldset> 
-                    </div>  
-                </div>
             </div>
-            <div class="cont-footer">
-                <div class="alineacion">
-                <div class="copyright">
-                    © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
-                </div>
-            
-                <div class="nosotros">
-                    <a href=""> Preguntas Frecuentes |</a>
-                    <a href="terminos-condiciones.html"> Términos y condiciones </a>
-                </div>
+            <div class="columna2">
+        
+                    <h1> Nuestras Redes Sociales </h1>
+                    <div class="fila">
+                        <img src="imagenes/facebook1.png">
+                        <label> Síguenos en Facebook</label>
+                    </div> 
+
+                    <div class="fila">
+                        <img src="imagenes/google1.png">
+                        <label> Síguenos en Google+</label>
+                    </div>
+        
+                    <div class="fila">
+                        <img src="imagenes/twitter1.png">
+                        <label> Síguenos en Twitter</label>
+                    </div>
+            </div>
+            <div class="columna3">
+                <h1> Cambiar Idioma </h1>
+                <div class="fila-columna3">
+                    <fieldset>
+                        <div class="form-group">
+                            <select class="custom-select">
+                                <option selected="">Español</option>
+                                <option value="1">Inglés</option>
+                                <option value="2">Portugés</option>
+                            </select>
+                        </div>
+                    </fieldset> 
+                </div>  
             </div>
         </div>
-    </footer>
+        <br><div class="cont-footer">
+            <div class="alineacion">
+            <div class="copyright">
+                © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
+            </div>
+            <div class="nosotros">
+                <a href=""> Preguntas Frecuentes |</a>
+                <a href=""> Términos y condiciones </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 
     
 

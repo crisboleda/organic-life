@@ -1,6 +1,8 @@
 
 <?php 
 
+    session_start();
+
     $destino = 'lifeorganic182@gmail.com';
     $asunto = 'MENSAJE DE CONTACTO';
     $titulo = $_POST['posdata'];
@@ -34,7 +36,11 @@
     ";
 
 
-    mail($destino, $asunto, $mensaje, $cabeceras);
+    $resultado = mail($destino, $asunto, $mensaje, $cabeceras);
+
+    if ($resultado) {
+        $_SESSION['mensajeCorrecto'] = "Su mensaje fue enviado, en breve le daremos respuesta";
+    }
 
     header("Location: ../contacto.php");
 

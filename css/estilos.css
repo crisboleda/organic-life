@@ -294,6 +294,35 @@ footer{
     margin-top: 20px;
 }
 
+.suscripcionfooter h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.suscripcionfooter input[type="email"] {
+    padding: 2.5%;
+    width: 60%;
+    font-family: sans-serif;
+    color: #202020;
+}
+
+#suscribefooter {
+    padding: 2.5%;
+    width: 60%;
+    font-family: sans-serif;
+    color: #202020;
+}
+
+#submitfooter {
+    width: 30%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    background: #12D141;
+    color: #FFF;
+    padding: 3%;
+    border: #f0f0f0;
+    border-radius: 3px;
+}
+
 .columna2{
     max-width: 400px;
 }
@@ -371,6 +400,8 @@ footer{
 
 }
 
+
+
 @media screen and (max-width: 1100px){
     .cont-body{
         flex-wrap: wrap;
@@ -403,6 +434,27 @@ footer{
     .lista-submenu {
         display: none;
     }
+
+    .img-logo {
+        margin-left: 15px;
+    }
 }
 
 /* Responsive Menú */
+@media screen and (max-width: 550px) {
+    .menu-lateralResponsive {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .menu-lateralResponsive {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 831px) {
+    .menu-lateralResponsive {
+        display: none;
+    }
+}

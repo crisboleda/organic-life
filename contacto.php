@@ -1,6 +1,6 @@
 <?php 
 
-    
+    session_start();
 
 ?>
 
@@ -12,8 +12,9 @@
     <title>Contacto</title>
     <link rel="stylesheet" href="css/contacto.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-   
-
+    
+    <link rel="stylesheet" href="iconos/style.css">
+    <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
   </head>
   <body>
 
@@ -33,11 +34,7 @@
                 <?php }else { ?>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
-                    <li class="li-perfilUsuario">
-                        <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
-                    </li>
-     
+                    <li><a href=""><span class="icon-search"></span></a></li>   
                 <?php } ?>
             </ul>
         </nav>
@@ -57,7 +54,12 @@
         <h1>¡Env&iacuteanos t&uacute problema</h1>
         <h1>o sugerencia!</h1>
     </div>
-
+    <?php if (isset($_SESSION['mensajeCorrecto'])) { ?>
+        <div class="mensaje-succes" id="ventana-emergente">
+            <?php echo $_SESSION['mensajeCorrecto'] ?>
+            <span class="icon-cancel-circle" id="close-alert"></span>
+        </div>
+    <?php session_unset(); } ?>
     <div class="login-box">
       
       <form action="php/enviar.php" method="POST">
@@ -82,47 +84,44 @@
       </form>
     </div>
 
-   <div>
+    <div>
        <section class="ubicacion">
            <h2>Nos ubicamos en:</h2>
            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d993.9025617361882!2d-75.68147687085388!3d4.836794436109731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1557621793269!5m2!1ses-419!2sco" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
        </section>
    </div> 
-   <footer>
+   <!--Footer-->
+    <footer>
         <div class="contenedor">
-                <div class="cont-body">                
-                    <div class="columna1">    
+            <div class="cont-body">                
+                <div class="columna1">    
+                    <div class="suscripcionfooter">
                         <h1> Entérate de nuevos eventos</h1>
-                        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
-                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
-                            </form>
-                        </nav>
+                        <input type="email" name="emailUser" id="suscribefooter" placeholder="Correo electrónico" required="">
+                        <input type="submit" id="submitfooter" name="" value="Suscríbete">
                     </div>
-                    <div class="columna2">
+                </div>
+                <div class="columna2">
             
                         <h1> Nuestras Redes Sociales </h1>
                         <div class="fila">
-                            <img src="imagenes/facebook.png">
+                            <img src="imagenes/facebook1.png">
                             <label> Síguenos en Facebook</label>
                         </div> 
-    
+
                         <div class="fila">
-                            <img src="imagenes/google.png">
+                            <img src="imagenes/google1.png">
                             <label> Síguenos en Google+</label>
                         </div>
             
                         <div class="fila">
-                            <img src="imagenes/twitter.png">
+                            <img src="imagenes/twitter1.png">
                             <label> Síguenos en Twitter</label>
                         </div>
-                    </div>
-            
-                    <div class="columna3">
-            
-                        <h1> Cambiar Idioma </h1>
-                        <div class="fila-columna3">
+                </div>
+                <div class="columna3">
+                    <h1> Cambiar Idioma </h1>
+                    <div class="fila-columna3">
                         <fieldset>
                             <div class="form-group">
                                 <select class="custom-select">
@@ -135,18 +134,20 @@
                     </div>  
                 </div>
             </div>
-            <div class="cont-footer">
+            <br><div class="cont-footer">
                 <div class="alineacion">
-                    <div class="copyright">
-                        © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
-                    </div>
-            
-                    <div class="nosotros">
-                        <a href=""> Preguntas Frecuentes |</a>
-                        <a href=""> Términos y condiciones </a>
-                    </div>
+                <div class="copyright">
+                    © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
+                </div>
+                <div class="nosotros">
+                    <a href=""> Preguntas Frecuentes |</a>
+                    <a href=""> Términos y condiciones </a>
                 </div>
             </div>
+        </div>
     </footer>
-  </body>
+    <script src="js/menu.js"></script>
+    <script src="js/aparecerIcono.js"></script>
+    <script src="js/cerrarVentanita.js"></script>
+</body>
 </html>

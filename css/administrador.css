@@ -205,8 +205,9 @@ nav ul li a {
 }
 
 .menu-adminstrador {
-    width: 25%;
+    width: 20%;
     height: 100%;
+    margin-right: 5%;
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     font-family: 'Encode Sans Condensed', sans-serif;
     padding-top: 20px;
@@ -222,6 +223,11 @@ nav ul li a {
     border-bottom: 2px rgba(0, 0, 0, 0.10) solid;
 }
 
+.menu-adminstrador ul li:hover {
+    transition: 0.5s;
+    background-color: #dddddd57;
+}
+
 .menu-adminstrador ul li a{
     text-decoration: none;
     color: rgba(0,0,0, 0.80);
@@ -232,15 +238,19 @@ nav ul li a {
 
 .contenido {
     font-family: 'Encode Sans Condensed', sans-serif;
-    box-shadow: 0 14px 20px rgba(0,0,0,0.20), 0 10px 10px rgba(0,0,0,0.1);
-    width: 65%;
-    margin: 50px 5%;
+    width: 76%;
+    margin: 2%;
     float: right;
     height: 100%;
 }
 
 .opcionMenu {
     display: none;
+}
+
+.istaUsuarios button {
+    height: 25px;
+    width: 25px;
 }
 
 #nuevoProducto h2 {
@@ -357,6 +367,10 @@ table {
     border-collapse: collapse;
 }
 
+table th {
+    background-color: #2cfa3693;
+}
+
 table tr th{
     padding: 15px;
 }
@@ -368,6 +382,10 @@ table tr th, td {
     text-align: center;
 }
 
+table tr:hover {
+    background-color: #dddddd45;
+}
+
 table button {
     background-color: #FFF;
     border: 0;
@@ -375,8 +393,93 @@ table button {
 
 
 .table-img img{
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
+}
+
+#table button {
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 1;
+}
+
+#table button img {
+    height: 25px;
+    width: 25px;
+}
+
+/* VENTANA EMERGENTE */
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#miModal {
+    position: fixed;
+    z-index: 2;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    font-family: 'Nunito', sans-serif;
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 60%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {top: -330px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background: #3db306f8;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.modal-body p {
+    text-align: justify;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+.contenido-modal input[type="submit"] {
+    background-color: #01161E;
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+    margin: 10px;
+    color: #FFFFFF;
+    width: 70%;
+    margin: 10px 14%;
+}
+
+.contenido-modal input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+#close-alert {
+    float: right;
+    margin-top: 3px;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 

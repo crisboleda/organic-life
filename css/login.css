@@ -9,10 +9,11 @@
     height: 100%;
     background-color: #FFF;
     right: -100%;
-    top: 70px;
+    z-index: 2;
+    top: 85px;
     position: fixed;
     transition: 1s;
-    
+    border-top: 1.6px #f1eded solid;
 }
 
 .nav-responsive {
@@ -125,14 +126,22 @@ h1 {
 	text-align: center;
 }
 
-input[type="email"], input[type="password"] {
+input[type="email"], input[type="password"], input[type="text"] {
     width: 100%;
+    position: relative;
 	background: rgba(0, 0, 0, 0);
 	height: 40px;
 	border: 0;
 	font-size: 18px;
     border-bottom: 2px white solid;
     color: #FFF;
+}
+
+.img-contraseña {
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    color: rgb(238, 225, 225);
 }
 
 input[type="password"]::placeholder {
@@ -143,7 +152,7 @@ input[type="password"] {
     letter-spacing: 6px;
 }
 
-input[type="email"]:focus, input[type="password"]:focus {
+input[type="email"]:focus, input[type="password"]:focus,  input[type="text"]:focus{
 	outline: none;
 	color: #FFF;
 }
@@ -251,14 +260,6 @@ input[type="submit"]:hover {
 	color: #FFF;
 }
 
-.img-contraseña {
-	height: 28px;
-	width: 28px;
-	position: absolute;
-	right: 45px;
-	bottom: 30px;
-}
-
 .error {
     font-size: 16px;
     color: red;
@@ -277,7 +278,7 @@ input[type="submit"]:hover {
 .inicia_primero {
     font-family: 'Encode Sans Condensed', sans-serif;
     font-size: 20px;
-    background-color: rgba(255, 217, 0, 0.60);
+    background-color: #f08275b6;
     width: 38%;
     text-align: center;
     padding: 15px;
@@ -290,12 +291,12 @@ input[type="submit"]:hover {
     float: right;
     margin-top: 5px;
     cursor: pointer;
-    color: rgba(28, 28, 34, 0.651);
+    color: rgba(30, 34, 28, 0.651);
 }
 
 #no-ver {
-	width: 26px;
-	height: 26px;
+	width: 32px;
+	height: 27px;
 	display: none;
 }
 
@@ -337,4 +338,44 @@ input[type="submit"]:hover {
 	.img-contraseña {
 		display: none;
 	}
+}
+
+@media screen and (max-width: 830px) {
+    header nav {
+        display: none;
+    }
+
+    .icon-menu {
+        display: block;
+    }
+
+    .sub-menu {
+        display: none;
+    }
+
+    .lista-submenu {
+        display: none;
+    }
+
+    .img-logo {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .menu-lateralResponsive {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .menu-lateralResponsive {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 831px) {
+    .menu-lateralResponsive {
+        display: none;
+    }
 }

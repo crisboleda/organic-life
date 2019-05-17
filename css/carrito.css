@@ -227,6 +227,140 @@
 }
 
 
+/* VENTANA EMERGENTE */
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#miModal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    font-family: 'Nunito', sans-serif;
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 60%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {top: -330px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background: #3db306f8;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.modal-body p {
+    text-align: justify;
+    font-size: 20px;
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+.contenido-modal input[type="submit"] {
+    background-color: #01161E;
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+    margin: 10px;
+    color: #FFFFFF;
+    border-radius: 15px;
+    width: 70%;
+    margin: 35px 14% 0 14%;
+}
+
+.contenido-modal input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+#close-alert {
+    float: right;
+    margin-top: 3px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-body label {
+    margin-top: 20px;
+}
+
+.modal-body .campo {
+    width: 35%;
+    font-size: 17px;
+    padding: 7px;
+    margin-top: 20px;
+}
+
+.cod-postal {
+    margin-left: 20px;
+}
+
+.campo-addres {
+    padding: 7px;
+    font-size: 17px;
+    width: 72%;
+    margin-top: 20px;
+}
+
+.linea-separadora {
+    width: 100%;
+    height: 2px;
+    margin: 25px 0;
+    background-color: #dddddd40;
+}
+
+.modal-body ul {
+
+}
+
+.modal-body ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 40px;
+    height: 55px;
+    width: 85px;
+    margin-top: 10px;
+}
+
+.modal-body ul li img {
+    height: 55px;
+    width: 55px;
+    margin-left: 30px;
+}
+
+.modal-body input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    left: 0;
+    margin-top: 17px;
+    top: 0;
+    position: absolute;
+}
+
 
 /* Carrito */
 

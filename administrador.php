@@ -15,6 +15,10 @@
         header("Location: index.php");
     }
 
+    if (isset($_GET['id']) and isset($_GET['url'])) {
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +32,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
     <title>Administrador</title>
+
+    <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
 </head>
 <body>
     <header id="cabecera">
@@ -47,8 +53,8 @@
         <span class="icon-cart"></span>
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="">OrganicLife</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="organiclife.php">OrganicLife</a></li>
+            <li><a href="blog.php">Blog</a></li>
            
         </ul>
     </div>  
@@ -57,13 +63,58 @@
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="catalogo.php">Catálogo</a></li>
-                <li><a href="organiclife.html">OrganicLife</a></li>
+                <li><a href="organiclife.php">OrganicLife</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="php/cerrar.php" class="boton">Cerrar sesión</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
             </ul>
         </nav>  
     </div>
+    <?php if (isset($_GET['id_producto'])) { ?>
+        
+    <div id="miModal" class="modal">
+		<div class="flex" id="flex">
+			<div class="contenido-modal">
+				<div class="modal-header">
+                    <span class="icon-cancel-circle" id="close-alert"></span>
+					<h2>Editar producto</h2>
+				</div>
+				<div class="modal-body">
+                    <?php 
+                        $identificacion = $_GET['id_producto'];
+                        $editProducto = "SELECT * FROM productos WHERE id_producto = '$identificacion'";
+                        $consult = $conexion->query($editProducto); 
+                        $info = mysqli_fetch_array($consult);
+                    ?>
+                    <form action="php/updateProducto.php?id=<?php echo $identificacion ?>" method="POST">
+                    <label for="nombre">Nombre del producto:</label><br>
+                    <input type="text" id="nombre" name="nombre-producto" value="<?php echo $info['nombreProducto']?>">
+                    <br><br>
+                    <label for="descripcion">Descripción del producto:</label><br>
+                    <textarea name="descrip-producto" id="" cols="50" rows="10"><?php echo $info['descripcionProducto']?></textarea>
+                    <br><br>
+                    <label for="gramos">Peso/cantidad</label><br>
+                    <input type="text" id="gramos" name="gramos-producto" value="<?php echo $info['gramosProducto']?>">
+                    <br><br>
+                    <label for="precio">Precio del producto:</label><br>
+                    <input type="text" id="precio" name="precio-producto" value="<?php echo $info['precioProducto']?>">
+                    <br><br>
+                    <label for="tipo">Tipo de producto:</label><br>
+                    <?php if ($info['tipo'] == "fruta") { ?>
+                        <input type="radio" name="tipo-producto" value="fruta" checked="">Fruta
+                        <input type="radio" name="tipo-producto" value="verdura">Verdura
+                    <?php }else { ?>
+                        <input type="radio" name="tipo-producto" value="fruta">Fruta
+                        <input type="radio" name="tipo-producto" value="fruta" checked="">Verdura
+                    <?php } ?>
+                    <br><br>
+                    <input type="submit" value="Actualizar información">
+                    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+    <?php } ?>
 
     <div class="container">
 
@@ -124,7 +175,7 @@
             </div>
 
             <div id="listaUsuarios" class="opcionMenu">
-                <table>
+                <table id="table">
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
@@ -142,13 +193,13 @@
 
                         while ($datos = mysqli_fetch_array($resultadoUser)){?>
                         <tr>
-                            <td><h2><?php echo $datos['id'] ?></td>
-                            <td><h2><?php echo $datos['nombreUser']?></h2></td>
+                            <td><p><?php echo $datos['id'] ?></p></td>
+                            <td><p><?php echo $datos['nombreUser']?></p></td>
                             <td><p><?php echo $datos['apellidoUser']?></p></td>
                             <td><p><?php echo $datos['correoUser'] ?></p></td>
-                            <td><h3><?php echo $datos['direccionUser'] ?></h3></td>
+                            <td><p><?php echo $datos['direccionUser'] ?></p></td>
                             <td><p><?php echo $datos['ciudad'] ?></p></td>
-                            <td><h2><?php echo $datos['telefono'] ?></td>
+                            <td><p><?php echo $datos['telefono'] ?></td>
                             <td><p><?php echo $datos['rango']?></p></td>
                             <td><button><a href="php/deleteUser.php?id=<?php echo $datos['id'] ?>"><img src="imagenes/basura.png"></a></button></td>
                         </tr>
@@ -167,6 +218,7 @@
                         <th>Precio</th>
                         <th>Tipo</th>
                         <th>Eliminar</th>
+                        <th>Editar</th>
                     </tr>
                     <?php
                         $query = "SELECT * FROM productos";
@@ -181,8 +233,8 @@
                             <td><p><?php echo $columna['gramosProducto'] ?></p></td>
                             <td><h3><?php echo $columna['precioProducto'] ?></h3></td>
                             <td><p><?php echo $columna['tipo'] ?></p></td>
-                            <td><h2><?php echo $columna['id_producto'] ?></td>
                             <td><button><a href="php/deleteproducto.php?id=<?php echo $columna['id_producto'] ?>"><img src="imagenes/basura.png"></a></button></td>
+                            <td><button class="modalEdit"><a href="administrador.php?url=listaProductos&id_producto=<?php echo $columna['id_producto'] ?>"><img src="imagenes/edit.png"></a></button></td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -193,10 +245,10 @@
         <div class="menu-adminstrador">
             <ul>
                 <li><a href="#" class="optionA" value="">Tu perfil</a></li>
-                <li><a href="#" class="optionA" name="nuevoProducto">Ingresar nuevo producto</a></li>
-                <li><a href="#" class="optionA" name="nuevoAdmin">Agregar nuevo administrador</a></li>
-                <li><a href="#" class="optionA" name="listaUsuarios">Lista de clientes</a></li>
-                <li><a href="#" class="optionA" name="listaProductos">Lista de productos</a></li>
+                <li><a href="administrador.php?url=nuevoProducto" class="optionA">Ingresar nuevo producto</a></li>
+                <li><a href="administrador.php?url=nuevoAdmin" class="optionA">Agregar nuevo administrador</a></li>
+                <li><a href="administrador.php?url=listaUsuarios" class="optionA">Lista de clientes</a></li>
+                <li><a href="administrador.php?url=listaProductos" class="optionA" name="">Lista de productos</a></li>
                 <li><a href="#" class="optionA" value="">Historial de ventas</a></li>
                 <li><a href="#" class="optionA" value="">Panel de control</a></li>
                 <li><a href="#" class="optionA" value="">Quejas o sugerencias</a></li>
@@ -205,7 +257,10 @@
         </div>
     
     </div>
-
+    <script src="js/modal.js"></script>
+    <script src="js/rowTable.js"></script>
     <script src="js/manejoDeContenidos.js"></script>
+    <script src="js/urlActual.js"></script>
+    <script src="js/ventanaComprar.js"></script>
 </body>
 </html>

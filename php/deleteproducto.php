@@ -4,10 +4,12 @@
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        echo $id;
-        $query = "DELETE FROM productos WHERE id_producto = '$id'";
 
-        $resultado = $conexion->query($query);
+        $delCarrito = "DELETE FROM carrito_compras WHERE producto = '$id'";
+        $resultado = $conexion->query($delCarrito);
+
+        $deleteProducto = "DELETE FROM productos WHERE id_producto = '$id'";
+        $ejecutar = $conexion->query($deleteProducto);
 
         header("Location: ../administrador.php");
 

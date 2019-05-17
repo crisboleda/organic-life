@@ -110,12 +110,12 @@ nav ul li a {
 
 }
 
-div#titulo{
+div#titulo {
     text-align: center;
     font-family: ' Heebo ' , sans-serif ;
     color: #FFF;
     position: relative;
-   
+    margin-top: 30px;
 }
 
 body{
@@ -128,20 +128,17 @@ body{
 
 .login-box {
     width: 30%;
+    margin: 20px 35%;
     height: 530px;
     background: black;
     opacity: 0.8 ;color: gray;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
     border-radius: 20px;
-    margin-top: 160px;
+    margin-top: 70px;
     margin-bottom: 40px;
     
-  }
+}
   
 
  .login-box h1 {
@@ -199,16 +196,39 @@ body{
     
 }
 
+.mensaje-succes {
+    width: 50%;
+    padding: 10px;
+    margin: 10px auto;
+    height: auto;
+    text-align: center;
+    background-color: rgba(36, 240, 63, 0.623);
+    font-size: 19px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.mensaje-succes span {
+    float: right;
+    margin-top: 3px;
+    cursor: pointer;
+    color: rgba(30, 34, 28, 0.651);
+}
+
+
+/* UBICACION */
+
 /* UBICACION */
 
 .ubicacion{
-    margin-top: 600px;
+    margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .ubicacion h2{
-    margin-left: 80px;
-    font-family: ' Heebo ' , sans-serif ;
-    color: gray;
+    background-color:  rgba(0, 0, 0, 0.062);
+    text-align: center;
+    font-family: 'Encode Sans Condensed' , sans-serif ;
+    color: #444141;
     font-size: 50px;
     
 }
@@ -221,8 +241,9 @@ body{
 
 /* FOOTER */
 
+/* FOOTER */
+
 footer{
-    
     width: 100%;
     background: #202020;
     color: white;
@@ -253,6 +274,35 @@ footer{
     font-size: 15px;
     color: #C7C7C7;
     margin-top: 20px;
+}
+
+.suscripcionfooter h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.suscripcionfooter input[type="email"] {
+    padding: 2.5%;
+    width: 60%;
+    font-family: sans-serif;
+    color: #202020;
+}
+
+#suscribefooter {
+    padding: 2.5%;
+    width: 60%;
+    font-family: sans-serif;
+    color: #202020;
+}
+
+#submitfooter {
+    width: 30%;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    background: #12D141;
+    color: #FFF;
+    padding: 3%;
+    border: #f0f0f0;
+    border-radius: 3px;
 }
 
 .columna2{
@@ -332,6 +382,8 @@ footer{
 
 }
 
+
+
 @media screen and (max-width: 1100px){
     .cont-body{
         flex-wrap: wrap;
@@ -355,5 +407,36 @@ footer{
 
     .icon-menu {
         display: block;
+    }
+
+    .sub-menu {
+        display: none;
+    }
+
+    .lista-submenu {
+        display: none;
+    }
+
+    .img-logo {
+        margin-left: 15px;
+    }
+}
+
+/* Responsive Menú */
+@media screen and (max-width: 550px) {
+    .menu-lateralResponsive {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .menu-lateralResponsive {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 831px) {
+    .menu-lateralResponsive {
+        display: none;
     }
 }
