@@ -2,6 +2,16 @@
     session_start();
     include("php/conexion.php");
 
+    if (isset($_SESSION['datos'])) {
+        $id_User = $_SESSION['datos']['id'];
+        $consulta = "SELECT * FROM carrito_compras WHERE id_usuario = '$id_User'";
+        $resultado = mysqli_query($conexion, $consulta);
+        $cantidad = mysqli_num_rows($resultado);
+        
+    }else {
+        $cantidad = 0;
+    }
+
     if (isset($conexion)) {
         echo "";
     }else {
@@ -69,6 +79,7 @@
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>
             </ul>
             <a href="carrito.php"><span class="icon-cart"></span></a>
+            <p class="cantidad"><?php echo $cantidad ?></p>
         </ul>
     </div>  
     <div class="menu-lateralResponsive" id="menu-responsive">
@@ -78,6 +89,7 @@
                 <li><a href="registro.php">Registrarse</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-cart"></span></a></li>
+                <p class="cantidad"><?php echo $cantidad ?></p>
             </ul>
         </nav>  
     </div>

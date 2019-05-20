@@ -222,6 +222,26 @@ form {
     margin-top: 20px;
 }
 
+/* Error al registrarse */
+.algun_error {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 20px;
+    background-color: #f08275b6;
+    width: 38%;
+    text-align: center;
+    padding: 15px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.algun_error span {
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+    color: rgba(30, 34, 28, 0.651);
+}
+
 .container-boton {
     width: 60%;
     float: left;

@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
 
     <link rel="stylesheet" href="iconos/style.css">
+    <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
 </head>
 <body>
     <header id="cabecera">
@@ -44,6 +45,12 @@
             </ul>
         </nav>  
     </div>
+    <?php if (isset($_SESSION['Error'])) { ?>
+        <div class="algun_error" id="ventana-emergente">
+            <?php echo $_SESSION['Error']; ?>
+            <span class="icon-cancel-circle" id="close-alert"></span>
+        </div>  
+    <?php session_unset(); } ?>
     <form action="php/insertarUser.php" method="POST" autocomplete="off">
         <div class="container">
             <h2>Regístrate<br>con tu red social</h2>
@@ -67,9 +74,6 @@
                     <img src="img/hide.png" alt="" class="img-contraseña" id="no-ver">
                     <input type="password" name="claveConfirm" id="contraseñaUser" placeholder="Confirma tu contraseña" required="">
                 </div>
-                <?php if (isset($_SESSION['errorContraseña'])) { ?>
-                    <h2 class="passwordError"> <?php echo $_SESSION['errorContraseña']?> </h2>
-                <?php session_unset(); } ?>
                 <div class="container-boton">
                     <input type="submit" name="" value="Regístrate">
                 </div>
@@ -80,5 +84,6 @@
         </div>
     </form>
     <script src="js/ver_clave.js"></script>
+    <script src="js/cerrarVentanita.js"></script>
 </body>
 </html>

@@ -5,7 +5,10 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $query = "DELETE FROM carrito_compras WHERE id = '$id'";
+        $compras = "DELETE FROM compras WHERE id_cliente = '$id'";
+        $deleteCompras = mysqli_query($conexion, $compras);
+
+        $query = "DELETE FROM carrito_compras WHERE id_usuario = '$id'";
         $resultado = $conexion->query($query);
 
         $deleteUser = "DELETE FROM usuario WHERE id = '$id'";

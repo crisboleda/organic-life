@@ -240,6 +240,68 @@
                 </table>
             </div>
 
+            <div id="listaVentas" class="opcionMenu">
+                <?php 
+                    $consultaCompras = "SELECT * FROM compras";
+                    $ventas = mysqli_query($conexion, $consultaCompras);
+                ?>  
+                <?php while ($compra = mysqli_fetch_array($ventas)) { ?>
+                    <?php 
+                        $identificacionCliente = $compra['id_cliente'];
+                        $queryCliente = "SELECT * FROM usuario WHERE id = '$identificacionCliente'";
+                        $buscarCliente = mysqli_query($conexion, $queryCliente);
+                        $datosCliente = mysqli_fetch_array($buscarCliente);   
+
+                        $identificacionProducto = $compra['id_producto'];
+                        $queryProducto = "SELECT * FROM productos WHERE id_producto = '$identificacionProducto'";
+                        $buscarProducto = mysqli_query($conexion, $queryProducto);
+                        $datosProducto = mysqli_fetch_array($buscarProducto);
+                        
+                        $id_compra = $compra['id_compra'];
+                        $fecha = $compra['fecha_compra'];
+                        $fecha = date("d-m-o", strtotime($fecha));
+                        $nombreCliente = $datosCliente['nombreUser'];
+                        $apellidoCliente = $datosCliente['apellidoUser'];
+                        $correoCliente = $datosCliente['correoUser'];
+                        $telefonoCliente = $datosCliente['telefono'];
+                        $nombreProducto = $datosProducto['nombreProducto'];
+                        $imgProduct = $datosProducto['imagenProducto'];
+                        $cantidad = $compra['cantidad'];
+                        $precio = $compra['precio'];
+                        $total = bcdiv(($cantidad * $precio), '1', 3);
+                        $metodoPago = $compra['metodo_pago'];
+                        $ciudadEnvio = $compra['ciudad'];
+                        $codPostal = $compra['codigo_postal'];
+                        $direccionEnvio = $compra['domicilio'];
+                    ?>
+                    <div class="card-venta">
+                        <div class="header-card">
+                            <p><b>FECHA DE VENTA:</b> <em><?php echo $fecha ?></em></p>
+                        </div>
+                        <div class="infoUser-card">
+                            <h3>Información del cliente</h3>
+                            <p><b>Nombre: </b><?php echo $nombreCliente ?> <?php echo $apellidoCliente ?></p>
+                            <p><b>Correo: </b><?php echo $correoCliente ?></p>
+                            <p><b>Telefono/Celular: </b><?php echo $telefonoCliente ?></p>
+                        </div>
+                        <div class="infoEnvio-card">
+                            <h3>Información de envio</h3>
+                            <p><b>Ciudad: </b><?php echo $ciudadEnvio ?></p>
+                            <p><b>Código postal: </b><?php echo $codPostal ?></p>
+                            <p><b>Dirección: </b><?php echo $direccionEnvio ?></p>
+                        </div>
+                        <div class="infoProduct-card">
+                            <h3>Información del producto</h3>
+                            <img class="img-producto" src="<?php echo $imgProduct ?>">
+                            <p><b>Referencia: </b><?php echo $nombreProducto ?></p>
+                            <p><b>Cantidad: </b><?php echo $cantidad ?></p>
+                            <p><b>Total: </b>$ <?php echo $total ?></p>
+                            <p><b>Metodo de pago</b></p>
+                            <img src="imagenes/<?php echo $metodoPago ?>.png">
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
 
         <div class="menu-adminstrador">
@@ -248,8 +310,8 @@
                 <li><a href="administrador.php?url=nuevoProducto" class="optionA">Ingresar nuevo producto</a></li>
                 <li><a href="administrador.php?url=nuevoAdmin" class="optionA">Agregar nuevo administrador</a></li>
                 <li><a href="administrador.php?url=listaUsuarios" class="optionA">Lista de clientes</a></li>
-                <li><a href="administrador.php?url=listaProductos" class="optionA" name="">Lista de productos</a></li>
-                <li><a href="#" class="optionA" value="">Historial de ventas</a></li>
+                <li><a href="administrador.php?url=listaProductos" class="optionA">Lista de productos</a></li>
+                <li><a href="administrador.php?url=listaVentas" class="optionA">Historial de ventas</a></li>
                 <li><a href="#" class="optionA" value="">Panel de control</a></li>
                 <li><a href="#" class="optionA" value="">Quejas o sugerencias</a></li>
                 <li><a href="#" class="optionA" value="">Configuración</a></li>

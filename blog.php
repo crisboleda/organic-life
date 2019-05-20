@@ -1,5 +1,18 @@
-<?php 
+<?php
+
+    include("php/conexion.php");
     session_start();
+
+    if (isset($_SESSION['datos'])) {
+        $id_User = $_SESSION['datos']['id'];
+
+        $consulta = "SELECT * FROM carrito_compras WHERE id_usuario = '$id_User'";
+        $resultado = mysqli_query($conexion, $consulta);
+
+        $cantidad = mysqli_num_rows($resultado);
+    }else {
+        $cantidad = 0;
+    }
 
 ?>
 
@@ -49,6 +62,7 @@
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>
             </ul>
             <a href="carrito.php" class="href-carrito"><span class="icon-cart"></span></a>
+            <p class="cantidad"><?php echo $cantidad ?></p>
         </ul>
     </div>  
     <div class="menu-lateralResponsive" id="menu-responsive">
@@ -69,7 +83,7 @@
                         <li><a href="php/cerrar.php">Cerrar sesión</a></li>
                     </ul>
                     <a href="carrito.php" class="href-carrito"><span class="icon-cart"></span></a>
-
+                    <p class="cantidad"><?php echo $cantidad ?></p>
                 <?php }else { ?>
                 <li><a href="contacto.php">Contacto</a></li>
                 <li><a href=""><span class="icon-search"></span></a></li>
@@ -83,7 +97,8 @@
                     <li><a href="php/validarUsuario.php">Perfil</a></li>
                     <li><a href="php/cerrar.php">Cerrar sesión</a></li>
                 </ul>
-                <a href="carrito.php" class="href-carrito"><span class="icon-cart"></span></a>    
+                <a href="carrito.php" class="href-carrito"><span class="icon-cart"></span></a>
+                <p class="cantidad"><?php echo $cantidad ?></p>    
                 <?php } ?>
             </ul>
         </nav>  

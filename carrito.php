@@ -8,6 +8,12 @@
         $query = "SELECT * FROM carrito_compras WHERE id_usuario = '$id'";
 
         $consultaCarrito = $conexion->query($query);
+
+
+        $ciudad = $_SESSION['datos']['ciudad'];
+        $domicilio = $_SESSION['datos']['direccionUser'];
+        $codigoPostal = $_SESSION['datos']['codigo_postal'];
+
     }
 
     $subtotal = 0;
@@ -97,40 +103,6 @@
         </nav>  
     </div>
 
-    <!-- VENTANA EMERGENTE COMPRAR YA -->
-        
-    <div id="miModal" class="modal">
-        <div class="flex" id="flex">
-            <div class="contenido-modal">
-                <div class="modal-header">
-                    <span class="icon-cancel-circle" id="close-alert"></span>
-                    <h2>INFORMACIÓN DE COMPRA</h2>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <h3>Información de envío</h3>
-                        <br>
-                        <label for="">Ciudad: </label>
-                        <input type="text" name="ciudad-envio" placeholder="Destino del producto" class="campo">
-                        <label for="" class="cod-postal">Código Postal: </label>
-                        <input type="text" name="postal-envio" placeholder="Su código postal" class="campo"><br>
-                        <label for="">Dirección de residencia: </label>
-                        <input type="text" name="direccion-envio" placeholder="Ingrese su dirección" class="campo-addres"><br>
-                        <div class="linea-separadora"></div>
-                        <h3>Método de pago</h3>
-                        <ul>
-                            <li><input type="radio" name="metodo-pago" value="tarjeta mastercard"><img src="imagenes/mastercard.png"></li>
-                            <li><input type="radio" name="metodo-pago" value="paypal"><img src="imagenes/paypal.png"></li>
-                            <li><input type="radio" name="metodo-pago" value="tarjeta visa"><img src="imagenes/visa.png"></li>
-                            <li><input type="radio" name="metodo-pago" value="bitcoin"><img src="imagenes/bitcoin.png"></li>
-                            <li><input type="radio" name="metodo-pago" value=""><img src="imagenes/payment.png"></li>
-                        </ul>
-                        <input type="submit" value="COMPRAR">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!--Inicio del carrito de compras-->
@@ -157,11 +129,14 @@
                     $informacion = mysqli_fetch_array($consultaProducto); 
                     $operacion = $informacion['precioProducto'] * $datos['cantidad'];
                     $data = bcdiv($operacion, '1', 3);
-                    $subtotal = $subtotal + $data ?>
+                    $subtotal = $subtotal + $data; 
+                       
+                    ?>
+                    
                     <tr>
                         <td><p><?php echo $informacion['nombreProducto'] ?></p></td>
                         <td><img src="<?php echo $informacion['imagenProducto'] ?>"></td>
-                        <td><p><?php echo $informacion['precioProducto'] ?></p></td>
+                        <td><p>$ <?php echo $informacion['precioProducto'] ?></p></td>
                         <td><p><?php echo $datos['cantidad'] ?></p></td>
                         <td><p>$ <?php echo $data ?></p>
                         <td><button class="btn-delete"><a href="php/quitarProducto.php?id=<?php echo $datos['id_carrito'] ?>"><img src="imagenes/basura.png"></a></button></td>
@@ -180,7 +155,8 @@
                     <li>PSE</li>
                 </ul>
             </div>
-            <div class="sup"><p>Suptotal : $ <?php echo $subtotal ?></p></div>
+            <?php $subtotal = number_format($subtotal,'3', ',','.') ?>
+            <div class="sup"><p>Suptotal : $ <input type="text" id="campoTotal" readonly="readonly" value="<?php echo $subtotal ?>"></p></div>
         </div>
         
         <div class="comya13">
@@ -192,6 +168,42 @@
         </div>
 
     <!--fin del carrito de compras-->
+
+    <!-- VENTANA EMERGENTE COMPRAR YA -->
+        
+    <div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header">
+                    <span class="icon-cancel-circle" id="close-alert"></span>
+                    <h2>INFORMACIÓN DE COMPRA</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="php/insertarCompra.php" method="POST">
+                        <h3>Información de envío  <p class="precioTotal">Total a pagar: $ <?php echo $subtotal ?></p></h3>
+                        <br>
+                        <label for="">Ciudad: </label>
+                        <input type="text" name="ciudad-envio" placeholder="Destino del producto" class="campo" value="<?php echo $ciudad ?>" required="">
+                        <label for="" class="cod-postal">Código Postal:</label>
+                        <input type="text" name="postal-envio" placeholder="Su código postal" class="campo" value="<?php echo $codigoPostal ?>" required=""><br>
+                        <label for="">Dirección de residencia: </label>
+                        <input type="text" name="direccion-envio" placeholder="Ingrese su dirección" class="campo-addres" value="<?php echo $domicilio ?>" required=""><br>
+                        <div class="linea-separadora"></div>
+                        <h3>Método de pago</h3>
+                        <ul>
+                            <li><input type="radio" name="metodo-pago" value="mastercard" checked=""><img src="imagenes/mastercard.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="paypal"><img src="imagenes/paypal.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="visa"><img src="imagenes/visa.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="bitcoin"><img src="imagenes/bitcoin.png"></li>
+                            <li><input type="radio" name="metodo-pago" value="payment"><img src="imagenes/payment.png"></li>
+                        </ul>
+                        <input type="submit" value="COMPRAR">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN VENTANA EMERGENTE -->
 
     <!--Footer-->
     <footer>

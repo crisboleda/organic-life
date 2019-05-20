@@ -1,5 +1,17 @@
 <?php 
+    include("php/conexion.php");
     session_start();
+
+    if (isset($_SESSION['datos'])) {
+        $id_User = $_SESSION['datos']['id'];
+
+        $consulta = "SELECT * FROM carrito_compras WHERE id_usuario = '$id_User'";
+        $resultado = mysqli_query($conexion, $consulta);
+
+        $cantidad = mysqli_num_rows($resultado);
+    }else {
+        $cantidad = 0;
+    }
 
 ?>
 
@@ -54,17 +66,18 @@
         </nav>
     </header>
     <div class="sub-menu">
-        <a href="carrito.php"><span class="icon-cart"></span></a>
         <ul class="lista-submenu">
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="#" class="actual">OrganicLife</a></li>
+            <li><a href="organiclife.php">OrganicLife</a></li>
             <li><a href="blog.php">Blog</a></li>
             <ul class="subMenu-usuario" id="submenu-perfil">
                 <li><a href="php/validarUsuario.php">Perfil</a></li>
                 <li><a href="php/cerrar.php">Cerrar sesión</a></li>
             </ul>
+            <a href="carrito.php" class="href-carrito"><span class="icon-cart"></span></a>
+            <p class="cantidad"><?php echo $cantidad ?></p>
         </ul>
-    </div>  
+    </div>
     <div class="menu-lateralResponsive" id="menu-responsive">
         <nav class="nav-responsive">
             <ul>

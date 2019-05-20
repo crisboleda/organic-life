@@ -164,6 +164,7 @@ nav ul li a {
 .lista-ul {
     position: relative;
     width: 100%;
+    z-index: 1;
 }
 
 .li-left {
@@ -188,6 +189,7 @@ nav ul li a {
     border: 2px solid #ccc;
     border-radius: 20px;
     top: 0;
+    z-index: 2;
     margin-top: 17px;
     right: 0;
     float: right;
@@ -203,21 +205,328 @@ nav ul li a {
     cursor: pointer;
 }
 .menu-usuario {
-    width: 28%;
-    height: 600px;
+    width: 20%;
+    height: 700px;
+    margin-right: 5%;
     box-shadow: 0 3px 5px 0.3px rgba(0, 0, 0, .24);
     font-family: 'Encode Sans Condensed', sans-serif;
     padding-top: 20px;
+    font-size: 20px;
 }   
 
 .menu-usuario ul li {
     padding: 10px;
+    margin-bottom: 10px;
     border-bottom: 2px rgba(0, 0, 0, 0.10) solid;
 }
 .menu-usuario ul li a{
     text-decoration: none;
     color: rgba(0,0,0, 0.80);
 }
+
+/* CONTENIDO */
+
+.contenido {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    width: 76%;
+    margin: 2%;
+    float: right;
+    height: 100%;
+}
+
+.opcionMenu {
+    display: none;
+}
+
+#update h2 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#update form {
+    width: 80%;
+    margin: 50px auto;
+}
+
+#update form label {
+    font-size: 20px;
+}
+
+#update form input[type="text"], input[type="email"], input[type="password"] {
+    margin-top: 10px;
+    width: 50%;
+    font-size: 17px;
+    border: 2px #C7C7C7 solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#update form input[type="text"]:focus, input[type="email"]:focus {
+    outline: none
+}
+
+#update form input[type="submit"] {
+    border-radius: 10px;
+    border: 2px #dddddd solid;
+    background-color: #0CA302;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+    color: #FFF;
+}
+
+#update form input[type="submit"]:hover {
+    background-color: rgb(29, 180, 18);
+    transition: 0.5s;
+}
+
+
+/* PERFIL */
+.sub-contenido {
+    width: 150px;
+    margin-left: 60px;
+    margin-top: 50px;
+    display: inline-block;
+    padding: 20px 50px;
+    height: auto;
+    background-color: #dddddd80;
+}
+
+.sub-contenido img{
+    margin-top: 30px;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.sub-contenido p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.info-perfil {
+    float: right;
+    margin-top: 50px;
+    height: auto;
+    width: 65%;
+}
+
+.info-box {
+    background-color: #ffffffef;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.1);
+    height: auto;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.info-box p {
+    font-size: 20px;
+}
+
+.info-box p span {
+    background-color: #dddddd18;
+    padding: 2px 8px;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.title-misCompras {
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0;
+    color: #414141;
+}
+
+.table-compras {
+    border: 2px #b4b4b4 solid;
+    border-collapse: collapse;
+}
+
+.table-compras tr th, td {
+    padding: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.table-compras tr:hover {
+    background-color: #dddddd50;
+    transition: 0.4s;
+}
+
+.table-compras tr th {
+    background-color: #2cfa3693;
+    color: #1d1d1d;
+}
+
+.table-compras tr {
+    border: 2px #b4b4b4 solid;
+}
+
+.img-product img {
+    height: 90px;
+    width: 90px;
+}
+
+.metodo img {
+    height: 60px;
+    width: 60px;
+    margin-top: 10px;
+}
+
+/* VENTANA EMERGENTE */
+
+.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#miModal {
+    position: fixed;
+    z-index: 2;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.452);
+    font-family: 'Nunito', sans-serif;
+}
+
+.contenido-modal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    width: 60%;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    animation-name: modal;
+    animation-duration: 1s;
+}
+
+@keyframes modal {
+    from {top: -330px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+.modal-header {
+    padding: 8px 16px;
+    background: #3db306f8;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.modal-body p {
+    text-align: justify;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.modal-body {
+    padding: 40px;
+}
+
+.modal-body .estado {
+    color: #3db306f8;
+}
+
+.modal-body .img-pago {
+    margin-left: 20px;
+}
+
+.modal-body .img-pago img {
+    height: 40px;
+    width: 40px;
+}
+
+.contenido-modal input[type="submit"] {
+    background-color: #01161E;
+    padding: 10px;
+    font-size: 20px;
+    border: 0;
+    margin: 10px;
+    color: #FFFFFF;
+    border-radius: 15px;
+    width: 70%;
+    margin: 35px 14% 0 14%;
+}
+
+.contenido-modal input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+#close-alert {
+    float: right;
+    margin-top: 3px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-body label {
+    margin-top: 20px;
+}
+
+.modal-body .campo {
+    width: 35%;
+    font-size: 17px;
+    padding: 7px;
+    margin-top: 20px;
+}
+
+.cod-postal {
+    margin-left: 20px;
+}
+
+.campo-addres {
+    padding: 7px;
+    font-size: 17px;
+    width: 72%;
+    margin-top: 20px;
+}
+
+.linea-separadora {
+    width: 100%;
+    height: 2px;
+    margin: 25px 0;
+    background-color: #dddddd40;
+}
+
+.modal-body ul {
+
+}
+
+.modal-body ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 40px;
+    height: 55px;
+    width: 85px;
+    margin-top: 10px;
+}
+
+.modal-body ul li img {
+    height: 55px;
+    width: 55px;
+    margin-left: 30px;
+}
+
+.modal-body input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    left: 0;
+    margin-top: 17px;
+    top: 0;
+    position: absolute;
+}
+
 
 /* FOOTER */
 

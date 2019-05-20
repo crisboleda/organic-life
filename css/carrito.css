@@ -110,7 +110,6 @@
 .suptotal{
     position: relative;
     width: 80%;
-    height: auto;
     margin: 0px 10%;
     padding: 10px;
     font-size: 20px;
@@ -118,21 +117,39 @@
     border: 1px #b1b0b0 solid;
 }
 .sup{
-    display: inline-block;
-    width: 50%;
-}
-.sup p{
     float: right;
-    text-align: end;
 }
 
+.sup p{
+    text-align: right;
+}
+
+.sup input[type="text"] {
+    border: 0;
+    width: 85px;
+    font-size: 20px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.sup input[type="text"]:focus {
+    outline: none;
+}
 
 .pagos{
-    float: left;
+    display: inline-block;
     width: 50%;
+    height: auto;
 }
 .pagos p{
+    height: auto;
     margin-left: 2%
+}
+
+.precioTotal {
+    font-size: 20px;
+    float: right;
+    color: #424242ea;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
 
 
@@ -140,7 +157,7 @@
     margin-top: 1%;
     width: 80%;
     height: 8%;
-    float: left;
+    display: inline-block;
 }
 
 .for13{
@@ -361,6 +378,7 @@
     position: absolute;
 }
 
+/* FIN VENTANA EMERGENTE */
 
 /* Carrito */
 

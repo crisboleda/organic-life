@@ -482,6 +482,87 @@ table button {
     cursor: pointer;
 }
 
+.card-venta {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.1);
+    margin: 50px;
+    height: auto;
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+.header-card {
+    width: 100%;
+    background-color: #47c90bf8;
+    padding: 10px 0;
+    font-size: 20px;
+    font-family: 'Heebo', sans-serif;
+    color: #FFF;
+    text-align: center;
+}
+
+.infoUser-card {
+    display: inline-block;
+    width: 35%;
+    margin: 2.5%;
+    padding: 3% 5% 3% 5%;
+    background-color: #ebebeb80;
+    font-size: 20px;
+}
+
+.infoUser-card h3 {
+    margin-bottom: 10px;
+}
+
+.infoUser-card p {
+    margin-bottom: 5px;
+}
+
+.infoProduct-card {
+    width: 80%;
+    margin: 0 5% 2% 5%;
+    font-size: 20px;
+    padding: 3% 5%;
+    display: inline-block;
+    background-color: #ebebeb80;
+}
+
+.infoProduct-card h3 {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.infoProduct-card p {
+    margin-bottom: 5px;
+}
+
+.infoProduct-card .img-producto {
+    height: 200px;
+    width: 200px;
+    float: right;
+}
+
+
+
+.infoProduct-card img {
+    
+}
+
+.infoEnvio-card {
+    float: right;
+    width: 35%;
+    margin: 2.5%;
+    padding: 3% 5% 3% 5%;
+    background-color: #ebebeb80;
+    font-size: 20px;
+}
+
+.infoEnvio-card h3 {
+    margin-bottom: 10px;
+}
+
+.infoEnvio-card p {
+    margin-bottom: 5px;
+}
+
 
 /* FOOTER */
 
