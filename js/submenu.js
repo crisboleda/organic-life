@@ -1,5 +1,9 @@
 var li = document.getElementById('li-selector');
-li.addEventListener('click', mostrarSubMenu);
+
+if (li) {
+    li.addEventListener('click', mostrarSubMenu);
+}
+
 var ulSub = document.getElementById('submenu-cat');
 
 var contador = 0;

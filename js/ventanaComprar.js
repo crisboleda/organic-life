@@ -1,7 +1,7 @@
 var btn_cerrar = document.getElementById('close-alert')
 var ventanaEmergente = document.getElementById('miModal')
 var btn_comprar = document.getElementById('btn-comprar')
-var total = parseFloat(document.getElementById('campoTotal').value)
+var total = parseFloat(document.getElementById('campoTotal').getAttribute('value'))
 console.log(total)
 
 btn_comprar.addEventListener("click", abrirVentana)

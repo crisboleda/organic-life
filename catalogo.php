@@ -25,6 +25,10 @@
         $tipo = 'fruta';
     }
 
+    if (isset($_GET['rango'])) {
+        echo $_GET['rango'];
+    }
+
     $query = "SELECT * FROM productos WHERE tipo = '$tipo'";
     $resultado = $conexion->query($query);
 
@@ -48,25 +52,34 @@
         <h1 class="logo">Organic Life</h1>
         <img src="imagenes/menu.png" class="icon-menu" id="boton-menu">
         <nav>
-            <ul>
+            <div class="container-buscador" id="contenido">
+                <form action="php/buscar.php?url=<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
+                    <input type="text" id="campoBuscar" placeholder="Buscar..." name="productoBuscar">
+                    <span class="icon-search"></span>
+                </form>
+            </div>
+            <ul id="lista-principal">
                 <?php 
                     if (empty($_SESSION['datos'])) { ?>
                     <li><a href="index.php">Incio</a></li>
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                     <li><a href="registro.php">Registrarse</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
+                    <li><span class="icon-search" id="buscador"></span></li>
                     
                 <?php }else { ?>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
-                <li><a href=""><span class="icon-search"></span></a></li>
+                <li><span class="icon-search" id="buscador"></span></li>
                 <li class="li-perfilUsuario">
                     <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
                 </li>
 
                 <?php } ?>
             </ul>
+            <?php if (isset($_SESSION['objetoNoEncontrado'])) { ?>
+                <h3 class="errorBusqueda" id="messageError"><?php echo $_SESSION['objetoNoEncontrado'] ?></h3>
+            <?php unset($_SESSION['objetoNoEncontrado']); } ?>
         </nav>
     </header>
     <div class="sub-menu">
@@ -96,23 +109,16 @@
     <div class="menu-lateral">
         <nav class="submenu-lateral">
             <ul class="lista-lateral">
-                <li><a>Productos que ofrecemos:</a><span class="icon-circle-down"></span>
-                    <ul class="submenu-catergorias" id="submenu-cat">
-                        <li><a href="catalogo.php?tipo=frutas">Frutas</a></li>
-                        <li><a href="catalogo.php?tipo=verduras">Verduras</a></li>
-                    </ul>
-                </li>
-                <li><a href="catalogo.php?id=fruta">Frutas</a></li>
-                <li><a href="catalogo.php?id=verdura">Verduras</a></li>
-                <!-- <li><a>Rango de precios</a><span class="icon-circle-down"></span>
-                    <ul>
-                        <li><a href="">$1,000 - 4,999</a></li>
-                        <li><a href="">$5,000 - 9,999</a></li>
-                        <li><a href="">$10,000 - 14,999</a></li>
-                        <li><a href="">$15,000 - 19,999</a></li>
-                        <li><a href="">$20,000 - 24,999</a></li>
-                    </ul>
-                </li> -->
+                <li><span><img src="imagenes/icon-fruta.png"></span><a href="catalogo.php?id=fruta">Frutas</a></li>
+                <li><span><img src="imagenes/icon-verdura.png"></span><a href="catalogo.php?id=verdura">Verduras</a></li>
+                <ul>
+                    <li><input type="radio" name="precio" id="no-rango" checked="" value="no-rango"><label for="no-rango">Fuera de rango de precios</label></li>
+                    <li><input type="radio" name="precio" id="1-4" value="1000-4999"><label for="1-4">$ 1,000 - 4,999</label></li>
+                    <li><input type="radio" name="precio" id="5-9" value="5000-9999"><label for="5-9">$ 5,000 - 9,999</label></li>
+                    <li><input type="radio" name="precio" id="10-14" value="10000-14000"><label for="10-14">$ 10,000 - 14,999</label></li>
+                    <li><input type="radio" name="precio" id="15-19" value="15000-19000"><label for="15-19">$ 15,000 - 19,999</label></li>
+                    <li><input type="radio" name="precio" id="20-24" value="20000-24000"><label for="20-24">$ 20,000 - 24,999</label></li>
+                </ul>
             </ul>
         </nav>
     </div>
@@ -123,11 +129,14 @@
                 <img src="<?php echo $columna['imagenProducto'] ?>">
                 <h2><?php echo $columna['nombreProducto']?></h2>
                 <p><em><?php echo $columna['gramosProducto'] ?></em></p><br>
-                <h3>Precio: $ <?php echo $columna['precioProducto'] ?></h3><br>
+                <h3 value="<?php echo $columna['precioProducto'] ?>">Precio: $ <?php echo $columna['precioProducto'] ?></h3><br>
                 <button><a href="descripcion.php?id=<?php echo $columna['id_producto']?>">Ver más</a></button>
             </div>
         <?php } ?>
     </div>
+
+    <script src="js/buscar.js"></script>
+    <script src="js/rangoPrecios.js"></script>
     <script src="js/aparecerIcono.js"></script>
     <script src="js/submenu.js"></script>
 </body>

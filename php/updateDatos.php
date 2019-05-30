@@ -5,6 +5,9 @@
 
     $id = $_SESSION['datos']['id'];
 
+    $name = $_SESSION['datos']['Nombre'];
+    $correo = $_SESSION['datos']['email'];
+
     $nombre = $_POST['nombre-user'];
     $apellido = $_POST['apellido-user'];
     $correo = $_POST['correo-user'];

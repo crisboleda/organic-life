@@ -9,7 +9,8 @@
     $codigoPostal = $_POST['postal-envio'];
     $domicilio = $_POST['direccion-envio'];
     $metodoPago = $_POST['metodo-pago'];
-
+    $fecha_entrega = $_POST['fechaEntrega'];
+    $estadoEnvio = "Pendiente";
 
     $productosCarrito = "SELECT * FROM carrito_compras WHERE id_usuario = '$id_usuario'";
     $primerResultado = mysqli_query($conexion, $productosCarrito);
@@ -23,9 +24,9 @@
         $dato = mysqli_fetch_array($result);
         $valor = $dato['precioProducto'];
 
-        $query = "INSERT INTO compras (id_cliente, id_producto, cantidad, ciudad, codigo_postal,
+        $query = "INSERT INTO compras (id_cliente, id_producto, cantidad, fecha_entrega, estadoEnvio, ciudad, codigo_postal,
                                        domicilio, precio, metodo_pago)
-                            VALUES ('$id_usuario', '$id_producto', '$cantidad', '$ciudad',
+                            VALUES ('$id_usuario', '$id_producto', '$cantidad', '$fecha_entrega', '$estadoEnvio', '$ciudad',
                                     '$codigoPostal', '$domicilio', '$valor', '$metodoPago')";
         
         $resultado = mysqli_query($conexion, $query);

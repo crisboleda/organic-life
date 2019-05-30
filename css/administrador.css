@@ -540,12 +540,6 @@ table button {
     float: right;
 }
 
-
-
-.infoProduct-card img {
-    
-}
-
 .infoEnvio-card {
     float: right;
     width: 35%;
@@ -563,6 +557,133 @@ table button {
     margin-bottom: 5px;
 }
 
+
+/*  Estado del envio */
+
+.linea-separadora {
+    height: 2px;
+    width: 90%;
+    margin: 15px 20px;
+    background-color: #dddddd57;
+}
+
+.estado-envio {
+    width: auto;
+    padding-left: 15%;
+}
+
+.linea-1 {
+    width: 40%;
+    height: 8px;
+    background-color: #c4c4c470;
+    position: relative;
+    display: inline-block;
+}
+
+.bola-1 {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    background-color: #e0e0e0;
+    left: 0;
+    margin-top: -10px;
+    border-radius: 50%;
+}
+
+.linea-2 {
+    width: 40%;
+    height: 8px;
+    background-color: #c4c4c470;
+    position: relative;
+    margin-left: -5px;
+    display: inline-block;
+}
+
+.bola-2 {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    background-color: #e0e0e0;
+    left: 0;
+    margin-top: -10px;
+    border-radius: 50%;
+}
+
+.bola-3 {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    background-color: #e0e0e0;
+    right: 0;
+    margin-top: -10px;
+    border-radius: 50%;
+}
+
+.bola-1 p, .bola-2 p, .bola-3 p {
+    margin-top: 25px;
+    position: absolute;
+    font-size: 18px;
+    width: 100px;
+}
+
+
+
+
+.table-estadoEnvios {
+    font-size: 20px;
+}
+
+.table-estadoEnvios tr td a {
+    text-decoration: none;
+    color: #46942e;
+}
+
+.table-estadoEnvios tr td a:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+    transition: 0.7s;
+}
+
+.estadosDeEnvio img{
+    height: 45px;
+    width: 45px;
+}
+
+.estadosDeEnvio input {
+    margin-left: 10px;
+}
+
+.estadosDeEnvio input[type="radio"] {
+    height: 15px;
+    width: 15px;
+}
+
+.estadosDeEnvio label {
+    cursor: pointer;
+}
+
+.estadosDeEnvio button {
+    background-color: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+.estadosDeEnvio button img {
+    height: 35px;
+    width: 35px;
+}
+
+.colorAlerta {
+    color: salmon;
+}
+
+.colorPrecaucion {
+    color: gold;
+}
+
+.colorCompletado {
+    color: #10E82D;
+}
 
 /* FOOTER */
 

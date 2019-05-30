@@ -45,24 +45,34 @@
         <h1 class="logo"><a href="index.html">Organic Life</a></h1>
         <img src="imagenes/menu.png" class="icon-menu" id="boton-menu">
         <nav>
-            <ul> 
+            <div class="container-buscador" id="contenido">
+                <form action="php/buscar.php?url=<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
+                    <input type="text" id="campoBuscar" placeholder="Buscar..." name="productoBuscar">
+                    <span class="icon-search"></span>
+                </form>
+            </div>
+            <ul id="lista-principal">
                 <?php if (empty($_SESSION['datos'])) { ?>
+
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                     <li><a href="registro.php">Registrarse</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
-                        
+                    <li><span class="icon-search" id="buscador"></span></li>
+                    
                 <?php }else { ?>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="contacto.php">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
-                    <li class="li-perfilUsuario">
-                        <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
-                    </li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+                <li><span class="icon-search" id="buscador"></span></li>
+                <li class="li-perfilUsuario">
+                    <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
+                </li>
 
                 <?php } ?>
             </ul>
+            <?php if (isset($_SESSION['objetoNoEncontrado'])) { ?>
+                <h3 class="errorBusqueda" id="messageError"><?php echo $_SESSION['objetoNoEncontrado'] ?></h3>
+            <?php unset($_SESSION['objetoNoEncontrado']); } ?>
         </nav>
     </header>
     <div class="sub-menu">
@@ -97,7 +107,7 @@
             </div> 
         </div>
     </div>
-    <div class="sub-menu2">
+    <div class="sub-menu2" id="sub-menu">
             <ul class="lista-submenu2">
                 <li><a href="#seccion1">¿Qué son los alimentos orgánicos?</a></li>
                 <li><a href="#seccion2">Identificar un alimento orgánico</a></li>
@@ -194,7 +204,9 @@
         </div>
     </div>
 </footer>
-    
+
+    <script src="js/buscar.js"></script>
+    <script src="js/scrollMenu.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/aparecerIcono.js"></script>
 </body>

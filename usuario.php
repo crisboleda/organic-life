@@ -220,7 +220,7 @@
         </div>
     </div>
 
-    <!-- VENTANA EMERGENTE COMPRAR YA -->
+    <!-- VENTANA EMERGENTE DETALLES COMPRA-->
     <?php 
         if(isset($_GET['detalles_id'])) {
             $id_compra = $_GET['detalles_id'];
@@ -234,6 +234,7 @@
 
         $fecha = $propiedades['fecha_compra'];
         $fecha = date("d-m-o", strtotime($fecha));
+        $fecha_entrega = $propiedades['fecha_entrega'];
         $ciudad = $propiedades['ciudad'];
         $codPostal = $propiedades['codigo_postal'];
         $direcEnvio = $propiedades['domicilio'];
@@ -254,6 +255,7 @@
                         <p><b>Destino del producto: </b><?php echo $ciudad ?></p>
                         <p><b>Código postal: </b><?php echo $codPostal ?></p>
                         <p><b>Dirección de envio: </b><?php echo $direcEnvio ?></p>
+                        <p><b>Fecha de entrega: </b><?php echo $fecha_entrega ?></p>
                         <p><b>Método de pago: </b><?php echo $pago ?><span class="img-pago"><img src="imagenes/<?php echo $pago ?>.png"></span></p>
                         <p><b>Estado de pago: </b><span class="estado">¡Satisfactorio!</span></p>
                     </div>

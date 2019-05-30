@@ -51,6 +51,7 @@
             <span class="icon-cancel-circle" id="close-alert"></span>
         </div>
     <?php session_unset(); } ?>
+
     <?php 
         if (isset($_SESSION['mensaje'])) { ?>
             <div class="inicia_primero" id="ventana-emergente">
@@ -59,7 +60,14 @@
             </div>      
     <?php session_unset(); } ?>
 
-    <form action="php/ingresar.php" method="POST" autocomplete="off">
+    <?php if (isset($_SESSION['noExisteEmail'])) { ?>
+        <div class="inicia_primero" id="ventana-emergente">
+            <?php echo $_SESSION['noExisteEmail']; ?>
+            <span class="icon-cancel-circle" id="close-alert"></span>
+        </div> 
+    <?php session_unset(); } ?>
+    
+    <form action="php/ingresar.php" method="POST" autocomplete="off" class="form-login">
         <div class="container">
             <h2>Inicia sesión<br>con tu red social</h2>
             <div class="redes">
@@ -76,7 +84,7 @@
                     <img src="imagenes/hide.png" alt="" class="img-contraseña" id="no-ver">
                     <input type="password" name="clave" id="contraseñaUser" placeholder="Introduce tu contraseña" required="">
                 </div>
-                <p><a href="">¿Olvidaste tu contraseña?</a> </p>
+                <p id="recuperar">¿Olvidaste tu contraseña?</p>
                 <div class="container-boton">
                     <input type="submit" name="" value="Iniciar sesión">
                 </div>
@@ -85,6 +93,26 @@
             
         </div>
     </form>
+
+    <div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header">
+                    <span class="icon-cancel-circle" id="close-alert"></span>
+                    <h2>RECUPERAR CONTRASEÑA</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="php/recuperarContraseña.php" method="POST" class="form-recuperar">
+                        <p>Ingresa el correo con el que te registrarte:</p>
+                        <input type="email" name="correoRecuperacion" placeholder="ejemplo@gmail.com">
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN VENTANA EMERGENTE -->
+
     <script src="js/ver_clave.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/cerrarVentanita.js"></script>

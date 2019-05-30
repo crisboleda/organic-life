@@ -1,6 +1,10 @@
 var icono = document.getElementById('img-perfil');
 var submenu = document.getElementById('submenu-perfil');
-icono.addEventListener("click", aparecer);
+
+if (icono) {
+    icono.addEventListener("click", aparecer);
+}
+
 var contador1 = 0;
 
 

@@ -13,7 +13,7 @@
 	$informacion = mysqli_fetch_array( $resultado );
 
 	
-	if ($resultado->num_rows >= 1) {
+	if (mysqli_num_rows($resultado) >= 1) {
  		$_SESSION['datos'] = $informacion;
 
  		$usuario = $_SESSION['datos']['rango'];

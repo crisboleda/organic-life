@@ -1,10 +1,11 @@
-
-
 * {
     margin: 0;
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
 
 .menu-lateralResponsive {
     width: 45%;
@@ -45,6 +46,7 @@
 }
 
 header {
+    position: relative;
     width: 100%;
     background-color: #FFF;
     opacity: 0.9;
@@ -216,7 +218,6 @@ nav ul li a {
     margin-left: 50px;
     float: left;
     position: absolute;
-    border-right: 2px #dddddd solid;
 }
 
 .li-selector {
@@ -242,13 +243,25 @@ nav ul li a {
 
 .lista-lateral li {
     width: 100%;
+    padding: 10px 10px 5px 10px;
     display: block;
-    border-bottom: 1px grey solid;
-    margin-top: 20px;
+    border-bottom: 1px rgba(165, 165, 165, 0.507) solid;
+    margin-top: 15px;
+}
+
+.lista-lateral li span img {
+    margin-right: 10px;
 }
 
 .lista-lateral ul li a {
-    border-bottom: 1px grey solid;
+    
+}
+
+.lista-lateral ul li label {
+    font-size: 20px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .contenido-productos {
@@ -256,6 +269,68 @@ nav ul li a {
     margin-left: 25%;
     border: 2px #dddddd solid;
 }
+
+/* BUSCAR */
+#campoBuscar {
+    padding: 10px 15px;
+    width: 280px;
+    border-radius: 30px;
+    font-size: 17px;
+    border: 1.5px #dddddd80 solid;
+}
+
+#campoBuscar:focus {
+    outline: none;
+}
+
+.icon-search {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.container-buscador {
+    top: -100%;
+    right: 0;
+    margin-right: 10px;
+    position: absolute;
+    height: auto;
+    width: auto;
+    transition: 0.4s;
+}
+
+.container-buscador span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 14px 20px;
+}
+
+#cabecera:hover .container-buscador {
+    top: -100%;
+}
+
+.lista-principal {
+    transition: 0.5s;
+}
+
+.errorBusqueda {
+    position: absolute;
+    right: 0;
+    margin-right: 40px;
+    bottom: 0;
+    margin-bottom: 5px;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-size: 13px;
+    color: salmon;
+}
+
+.ocultar {
+    transition: right 2s;
+    right: -100%;
+}
+
+/* FIN BUSCAR */
+
 
 .card {
     text-align: center;

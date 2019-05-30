@@ -24,8 +24,7 @@
                                 VALUES ('$correo', '$contraseña')";
     
             $resultado = $conexion->query($query);
-    
-    
+            
         }else {
             $_SESSION['Error'] = "Las contraseñas no coinciden";
             header("Location: ../registro.php");
@@ -46,5 +45,5 @@
         }
     }
 
-
+    
 ?>

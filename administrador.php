@@ -260,6 +260,7 @@
                         $id_compra = $compra['id_compra'];
                         $fecha = $compra['fecha_compra'];
                         $fecha = date("d-m-o", strtotime($fecha));
+                        $estadoEnvio = $compra['estadoEnvio'];
                         $nombreCliente = $datosCliente['nombreUser'];
                         $apellidoCliente = $datosCliente['apellidoUser'];
                         $correoCliente = $datosCliente['correoUser'];
@@ -274,7 +275,8 @@
                         $codPostal = $compra['codigo_postal'];
                         $direccionEnvio = $compra['domicilio'];
                     ?>
-                    <div class="card-venta">
+                    <a name="venta<?php echo $compra['id_compra'] ?>"></a>
+                    <div class="card-venta" data-value="<?php echo $estadoEnvio ?>">
                         <div class="header-card">
                             <p><b>FECHA DE VENTA:</b> <em><?php echo $fecha ?></em></p>
                         </div>
@@ -299,8 +301,61 @@
                             <p><b>Metodo de pago</b></p>
                             <img src="imagenes/<?php echo $metodoPago ?>.png">
                         </div>
+                        <br>
+                        <div class="linea-separadora"></div>
+                        <br>
+                        <div class="estado-envio">
+                            <div class="linea-1">
+                                <div class="bola-1">
+                                    <p>Envio en proceso</p>
+                                </div>
+                            </div>
+                            <div class="linea-2">
+                                <div class="bola-2">
+                                    <p>Producto en camino</p>
+                                </div>
+                                <div class="bola-3">
+                                    <p>Producto entregado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br><br><br>
                     </div>
                 <?php } ?>
+            </div>
+
+            <div id="envios" class="opcionMenu">
+                <table class="table-estadoEnvios">
+                    <tr>
+                        <th>Id Compra</th>
+                        <th>Fecha de compra</th>
+                        <th>Fecha de entrega</th>
+                        <th>Estado de envio</th>
+                        <th style="border-left: 2px #C7C7C7 solid;">Cambiar estado</th>
+                    </tr>
+                    <?php 
+                        $totalCompras = "SELECT * FROM compras";
+                        $queryCompras = mysqli_query($conexion, $totalCompras);
+                    ?>
+                    <?php while ($informacionCompras = mysqli_fetch_array($queryCompras)) { 
+                        $fechaCompra = $informacionCompras['fecha_compra']; 
+                        $fechaCompra = date("d-m-o", strtotime($informacionCompras['fecha_compra']) )?>
+                        <tr>
+                            <td><a href="administrador.php?url=listaVentas#venta<?php echo $informacionCompras['id_compra'] ?>"><?php echo $informacionCompras['id_compra'] ?></a></td>
+                            <td><?php echo $fechaCompra ?></td>
+                            <td><?php echo $informacionCompras['fecha_entrega'] ?></td>
+                            <td class="valueEstado"><?php echo $informacionCompras['estadoEnvio'] ?></td>
+                            <td style="border-left: 2px #C7C7C7 solid; position: relative;">
+                                <form action="php/cambiarEstadoEnvio.php?id=<?php echo $informacionCompras['id_compra'] ?>" method="POST" class="estadosDeEnvio" name="form-cambiarEstadosEnvio">
+                                    <input type="radio" name="estado-de-envio" value="Pendiente" id="productoPendiente<?php echo $informacionCompras['id_compra'] ?>" ><label for="productoPendiente<?php echo $informacionCompras['id_compra'] ?>"><img src="imagenes/pendiente.png" title="Pendiente"></label>
+                                    <input type="radio" name="estado-de-envio" value="En camino" id="enCamino<?php echo $informacionCompras['id_compra'] ?>"><label for="enCamino<?php echo $informacionCompras['id_compra'] ?>"><img src="imagenes/camino.png" title="En camino"></label>
+                                    <input type="radio" name="estado-de-envio" value="Entregado" id="productoRecibido<?php echo $informacionCompras['id_compra'] ?>"><label for="productoRecibido<?php echo $informacionCompras['id_compra'] ?>"><img src="imagenes/entregado.png" title="Entregado"></label>
+                                    <button><img src="imagenes/comprobado.png"></button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
             </div>
         </div>
 
@@ -312,17 +367,18 @@
                 <li><a href="administrador.php?url=listaUsuarios" class="optionA">Lista de clientes</a></li>
                 <li><a href="administrador.php?url=listaProductos" class="optionA">Lista de productos</a></li>
                 <li><a href="administrador.php?url=listaVentas" class="optionA">Historial de ventas</a></li>
-                <li><a href="#" class="optionA" value="">Panel de control</a></li>
+                <li><a href="administrador.php?url=envios" class="optionA">Envios</a></li>
                 <li><a href="#" class="optionA" value="">Quejas o sugerencias</a></li>
                 <li><a href="#" class="optionA" value="">Configuración</a></li>
             </ul>
         </div>
     
     </div>
+
+    <script src="js/estadoEnvio.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/rowTable.js"></script>
     <script src="js/manejoDeContenidos.js"></script>
     <script src="js/urlActual.js"></script>
-    <script src="js/ventanaComprar.js"></script>
 </body>
 </html>

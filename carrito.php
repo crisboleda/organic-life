@@ -33,6 +33,7 @@
 
     <!-- Foonts -->
     <link rel="stylesheet" href="iconos/style.css">
+    <link rel="stylesheet" href="iconos/envio/style.css">
     <link rel="stylesheet" href="iconos/icon-cerrar/style.css">
 
     <!-- Slider -->
@@ -67,29 +68,34 @@
         <h1 class="logo">Organic Life</h1>
         <img src="imagenes/menu.png" class="icon-menu" id="boton-menu">
         <nav>
-            <ul>
-            <?php 
-                if (empty($_SESSION['datos'])) { ?>
-                     
+            <div class="container-buscador" id="contenido">
+                <form action="php/buscar.php?url=<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
+                    <input type="text" id="campoBuscar" placeholder="Buscar..." name="productoBuscar">
+                    <span class="icon-search"></span>
+                </form>
+            </div>
+            <ul id="lista-principal">
+                <?php 
+                    if (empty($_SESSION['datos'])) { ?>
+                    <li><a href="index.php">Inicio</a></li>
                     <li><a href="login.php?url=<?php echo $_SERVER["REQUEST_URI"]?>">Entrar</a></li>
                     <li><a href="registro.php">Registrarse</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
+                    <li><span class="icon-search" id="buscador"></span></li>
                     
                 <?php }else { ?>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="contacto.php">Contacto</a></li>
-                    <li><a href=""><span class="icon-search"></span></a></li>
-                    <li class="li-perfilUsuario">
-                        <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
-                    </li>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+                <li><span class="icon-search" id="buscador"></span></li>
+                <li class="li-perfilUsuario">
+                    <img src="imagenes/usuario.png" class="img-usuario" id="img-perfil">
+                </li>
 
                 <?php } ?>
             </ul>
-            <ul class="subMenu-usuario" id="submenu-perfil">
-                <li><a href="php/validarUsuario.php">Perfil</a></li>
-                <li><a href="php/cerrar.php">Cerrar sesión</a></li>
-            </ul>
+            <?php if (isset($_SESSION['objetoNoEncontrado'])) { ?>
+                <h3 class="errorBusqueda" id="messageError"><?php echo $_SESSION['objetoNoEncontrado'] ?></h3>
+            <?php unset($_SESSION['objetoNoEncontrado']); } ?>
         </nav>  
     </header>
     <div class="menu-lateralResponsive" id="menu-responsive">
@@ -188,6 +194,22 @@
                         <input type="text" name="postal-envio" placeholder="Su código postal" class="campo" value="<?php echo $codigoPostal ?>" required=""><br>
                         <label for="">Dirección de residencia: </label>
                         <input type="text" name="direccion-envio" placeholder="Ingrese su dirección" class="campo-addres" value="<?php echo $domicilio ?>" required=""><br>
+
+                        <?php 
+                            date_default_timezone_set("America/Bogota");
+                            
+                            include("php/fechaEspañol.php");
+                            $d = date("d") + 3;
+                            $m = date("m");
+
+                            $time = "$d-$m-2019";
+
+                            $resultado = fechaEspañol($time);
+                            
+                        ?>
+                        <br><br>
+                        <p><span class="icon-airplane"></span><span class="tiempo">El envío llegará:</span><input type="text" name="fechaEntrega" readonly="readonly" value="<?php echo $resultado ?>" class="inputFecha"></p>
+
                         <div class="linea-separadora"></div>
                         <h3>Método de pago</h3>
                         <ul>
@@ -205,60 +227,54 @@
     </div>
     <!-- FIN VENTANA EMERGENTE -->
 
-    <!--Footer-->
+<!--Footer-->
     <footer>
         <div class="contenedor">
             <div class="cont-body">                
                 <div class="columna1">    
-                    <h1> Entérate de nuevos eventos</h1>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="text" placeholder="correo electrónico">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">SUSCRÍBETE</button>
-                        </form>
-                    </nav>
+                    <div class="suscripcionfooter">
+                        <h1> Entérate de nuevos eventos</h1>
+                        <input type="email" name="emailUser" id="suscribefooter" placeholder="Correo electrónico" required="">                            <input type="submit" id="submitfooter" name="" value="Suscríbete">
+                    </div>
                 </div>
                 <div class="columna2">
-        
+            
                     <h1> Nuestras Redes Sociales </h1>
                     <div class="fila">
-                        <img src="imagenes/facebook.png">
+                        <img src="imagenes/facebook1.png">
                         <label> Síguenos en Facebook</label>
                     </div> 
 
                     <div class="fila">
-                        <img src="imagenes/google.png">
+                        <img src="imagenes/google1.png">
                         <label> Síguenos en Google+</label>
                     </div>
-        
+            
                     <div class="fila">
-                        <img src="imagenes/twitter.png">
+                        <img src="imagenes/twitter1.png">
                         <label> Síguenos en Twitter</label>
                     </div>
                 </div>
-        
                 <div class="columna3">
-        
                     <h1> Cambiar Idioma </h1>
                     <div class="fila-columna3">
-                    <fieldset>
-                        <div class="form-group">
-                            <select class="custom-select">
-                                <option selected="">Español</option>
-                                <option value="1">Inglés</option>
-                                <option value="2">Portugés</option>
-                            </select>
-                        </div>
-                    </fieldset> 
-                </div>  
+                        <fieldset>
+                            <div class="form-group">
+                                <select class="custom-select">
+                                    <option selected="">Español</option>
+                                    <option value="1">Inglés</option>
+                                    <option value="2">Portugés</option>
+                                </select>
+                            </div>
+                        </fieldset> 
+                    </div>  
+                </div>
             </div>
-        </div>
-        <div class="cont-footer">
-            <div class="alineacion">
+            <br><div class="cont-footer">
+                <div class="alineacion">
                 <div class="copyright">
                     © 2019 Todos los derechos reservados | Diseñado por <a href="index.html"> OrganicLife </a>
                 </div>
-        
                 <div class="nosotros">
                     <a href=""> Preguntas Frecuentes |</a>
                     <a href=""> Términos y condiciones </a>
@@ -267,6 +283,7 @@
         </div>
     </footer>
     
+    <script src="js/buscar.js"></script>
     <script src="js/ventanaComprar.js"></script>
     <script src="js/aparecerIcono.js"></script>
 </body>
